@@ -1,14 +1,7 @@
 #pragma once
-#include "raylib.h"
 
-class Obstacle
-{
-	//Texture2D sprite;
-public:
+namespace MoonPatrol {
+	namespace Obstacles {
 
-	int x = 0;
-	int y = 0;
-	int radius = 0;
-};
-
-void obstacleCollisionWall();
+	}
+}

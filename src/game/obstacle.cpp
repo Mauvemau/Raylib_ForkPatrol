@@ -1,9 +1,7 @@
 #include "obstacle.h"
 
-Obstacle obstacle;
+namespace MoonPatrol {
+	namespace Obstacles {
 
-void obstacleCollisionWall()
-{
-	// Collision logic: player vs walls
-	if (obstacle.x < 0 -(obstacle.radius)) obstacle.x = static_cast<int>(GetScreenWidth()) - obstacle.radius;
-};
+	}
+}

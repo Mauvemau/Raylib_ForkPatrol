@@ -1,15 +1,24 @@
 #pragma once
+
 #include "raylib.h"
 
-class Player 
-{
-	//Texture2D sprite;
-public:
+namespace MoonPatrol {
+	namespace Players {
+		struct Player {
+			float x;
+			float y;
+			float width;
+			float height;
+			float speed;
+			float gravity;
+			float jumpForce;
+			Color color;
+		};
 
-	int x = 512;
-	int y = 325;
-	int height = 50;
-	int width = 50;
+		void move(Player& player, int direction);
 
-	bool isAlive = true;
-};
+		void draw(Player player);
+		void update(Player& player);
+		void init(Player& player, float x, float y, float width, float height, float speed, float gravity, float jumpForce, Color color);
+	}
+}
