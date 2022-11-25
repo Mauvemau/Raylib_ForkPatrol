@@ -1,6 +1,10 @@
 #include "player.h"
 #include "game.h"
 
+#include <iostream>
+
+using namespace std;
+
 namespace MoonPatrol {
 	namespace Players {
 
@@ -17,6 +21,7 @@ namespace MoonPatrol {
 			player.width = 0;
 			player.height = 0;
 			player.speed = 0;
+			player.verticalVelocity = 0;
 			player.gravity = 0;
 			player.jumpForce = 0;
 			player.color = RAYWHITE;
@@ -24,7 +29,10 @@ namespace MoonPatrol {
 		}
 
 		void jump(Player& player) {
-			player.color = RED;
+			if (player.y + player.height >= Game::getFloorAltitude()) {
+				player.y -= 1;
+				player.verticalVelocity = -player.jumpForce;
+			}
 		}
 
 		void move(Player& player, int direction) {
@@ -37,7 +45,14 @@ namespace MoonPatrol {
 		}
 
 		void update(Player& player) {
-			// --
+			if ((player.y + player.height) < Game::getFloorAltitude()) {
+				player.verticalVelocity += player.gravity * GetFrameTime();
+			}
+			else {
+				player.verticalVelocity = 0;
+				player.y = Game::getFloorAltitude() - player.height;
+			}
+			player.y += player.verticalVelocity * GetFrameTime();
 		}
 
 		void init(Player& player, float x, float y, float width, float height, float speed, float gravity, float jumpForce, Color color) {

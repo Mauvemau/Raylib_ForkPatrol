@@ -10,11 +10,13 @@ namespace MoonPatrol {
 			float width;
 			float height;
 			float speed;
+			float verticalVelocity;
 			float gravity;
 			float jumpForce;
 			Color color;
 		};
 
+		void jump(Player& player);
 		void move(Player& player, int direction);
 
 		void draw(Player player);

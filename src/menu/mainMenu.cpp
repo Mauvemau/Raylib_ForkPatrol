@@ -48,12 +48,12 @@ namespace MoonPatrol {
 
 				ClearBackground(BLACK);
 
-				HideCursor();
-				DrawCircle(GetMouseX(), GetMouseY(), 5, RED);
-
 				Buttons::draw(buttonPlay);
 				Buttons::draw(buttonCredits);
 				Buttons::draw(buttonQuit);
+
+				HideCursor();
+				DrawCircle(GetMouseX(), GetMouseY(), 5, RED);
 
 				DrawText("Menu", 0, 0, 120, WHITE);
 

@@ -69,6 +69,7 @@ namespace MoonPatrol {
 		static void init() {
 			programShouldClose = false;
 			InitWindow(static_cast<int>(screenWidth), static_cast<int>(screenHeight), TextFormat("MoonPatrol - Altamirano - v%s", programVersion));
+			SetExitKey(KEY_NULL);
 			setScreen(Screen::MAINMENU);
 		}
 

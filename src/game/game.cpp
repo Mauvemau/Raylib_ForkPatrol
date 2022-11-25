@@ -1,12 +1,16 @@
-#include "raylib.h"
 #include "game.h"
+
 #include "player.h"
+
+#include "inputManager.h"
+
+#include "raylib.h"
 
 namespace MoonPatrol {
     namespace Game {
         // Private
 
-        Players::Player player1;
+        Players::Player playerOne;
 
         float floorAltitude;
 
@@ -24,7 +28,7 @@ namespace MoonPatrol {
 
                 //DrawText("GAME PAUSED", static_cast<int>(screenWidth / 2 - MeasureText("GAME PAUSED", 40) / 2), static_cast<int>(screenHeight / 2 - 40), 40, GRAY);
 
-                Players::draw(player1);
+                Players::draw(playerOne);
 
             EndDrawing();
         }
@@ -37,7 +41,9 @@ namespace MoonPatrol {
 
         void update()
         {
-            Players::update(player1);
+            Input::updatePlayerOne(playerOne);
+
+            Players::update(playerOne);
 
             draw();
         }
@@ -45,12 +51,12 @@ namespace MoonPatrol {
         void init()
         {
             floorAltitude = GetScreenHeight() * .85f;
-            Players::init(player1,
+            Players::init(playerOne,
                 GetScreenWidth() * .25f, 
                 getFloorAltitude(),
                 50, 50,
-                200.0f, 
-                100.0f, 100.0f,
+                300.0f, 
+                200.0f, 200.0f,
                 RED);
         }
     }
