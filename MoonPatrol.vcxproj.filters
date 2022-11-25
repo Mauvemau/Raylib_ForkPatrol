@@ -43,6 +43,9 @@
     <ClCompile Include="src\collisionManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\credits.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game\game.h">
@@ -65,6 +68,9 @@
     </ClInclude>
     <ClInclude Include="src\collisionManager.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\credits.h">
+      <Filter>Source Files\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

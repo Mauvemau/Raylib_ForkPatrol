@@ -4,6 +4,7 @@
 
 // Screens
 #include "mainMenu.h"
+#include "credits.h"
 
 namespace MoonPatrol {
 	namespace Program {
@@ -35,7 +36,7 @@ namespace MoonPatrol {
 				MainMenu::init();
 				break;
 			case MoonPatrol::Program::Screen::CREDITS:
-
+				Credits::init();
 				break;
 			default:
 				break;
@@ -56,7 +57,7 @@ namespace MoonPatrol {
 					MainMenu::update();
 					break;
 				case MoonPatrol::Program::Screen::CREDITS:
-
+					Credits::update();
 					break;
 				default:
 					break;

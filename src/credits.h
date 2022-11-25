@@ -1,7 +1,7 @@
 #pragma once
 
 namespace MoonPatrol {
-	namespace MainMenu {
+	namespace Credits {
 		void update();
 		void init();
 	}

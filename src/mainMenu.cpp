@@ -55,13 +55,15 @@ namespace MoonPatrol {
 				Buttons::draw(buttonCredits);
 				Buttons::draw(buttonQuit);
 
+				DrawText("Menu", 0, 0, 120, WHITE);
+
 			EndDrawing();
 		}
 
 		// Public
 		void update() {
 			Buttons::update(buttonPlay, GetMousePosition());
-			Buttons::update(buttonCredits, GetMousePosition());
+			if(Buttons::update(buttonCredits, GetMousePosition())) Program::setScreen(Program::Screen::CREDITS);
 			if(Buttons::update(buttonQuit, GetMousePosition())) Program::close();
 
 			draw();

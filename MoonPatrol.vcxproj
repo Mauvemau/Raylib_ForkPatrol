@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="src\button.cpp" />
     <ClCompile Include="src\collisionManager.cpp" />
+    <ClCompile Include="src\credits.cpp" />
     <ClCompile Include="src\game\game.cpp" />
     <ClCompile Include="src\game\obstacle.cpp" />
     <ClCompile Include="src\game\player.cpp" />
@@ -31,6 +32,7 @@
   <ItemGroup>
     <ClInclude Include="src\button.h" />
     <ClInclude Include="src\collisionManager.h" />
+    <ClInclude Include="src\credits.h" />
     <ClInclude Include="src\game\game.h" />
     <ClInclude Include="src\game\obstacle.h" />
     <ClInclude Include="src\game\player.h" />
