@@ -34,17 +34,17 @@
     <ClCompile Include="src\programManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\mainMenu.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="src\button.cpp">
-      <Filter>Source Files\Menu\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="src\collisionManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\credits.cpp">
+    <ClCompile Include="src\menu\credits.cpp">
       <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu\mainMenu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu\button.cpp">
+      <Filter>Source Files\Menu\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,17 +60,17 @@
     <ClInclude Include="src\programManager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\mainMenu.h">
-      <Filter>Source Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="src\button.h">
-      <Filter>Source Files\Menu\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\collisionManager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\credits.h">
+    <ClInclude Include="src\menu\credits.h">
       <Filter>Source Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\mainMenu.h">
+      <Filter>Source Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\button.h">
+      <Filter>Source Files\Menu\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

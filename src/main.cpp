@@ -1,7 +1,7 @@
-#include "Game/game.h"
+#include "programManager.h"
 
 int main()
 {
-    initGame();
+    MoonPatrol::Program::start();
     return 0;
 }

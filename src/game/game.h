@@ -1,3 +1,8 @@
 #pragma once
 
-int initGame();
+namespace MoonPatrol {
+	namespace Game {
+		void update();
+		void init();
+	}
+}

@@ -3,8 +3,9 @@
 #include "raylib.h"
 
 // Screens
-#include "mainMenu.h"
-#include "credits.h"
+#include "menu/mainMenu.h"
+#include "menu/credits.h"
+#include "game/game.h"
 
 namespace MoonPatrol {
 	namespace Program {
@@ -30,7 +31,7 @@ namespace MoonPatrol {
 		static void initScreen(Screen screen) {
 			switch (screen) {
 			case MoonPatrol::Program::Screen::GAME:
-				
+				Game::init();
 				break;
 			case MoonPatrol::Program::Screen::MAINMENU:
 				MainMenu::init();
@@ -51,7 +52,7 @@ namespace MoonPatrol {
 			while (!WindowShouldClose() && !programShouldClose) {
 				switch (currentScreen) {
 				case MoonPatrol::Program::Screen::GAME:
-
+					Game::update();
 					break;
 				case MoonPatrol::Program::Screen::MAINMENU:
 					MainMenu::update();

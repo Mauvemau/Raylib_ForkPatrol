@@ -62,9 +62,9 @@ namespace MoonPatrol {
 
 		// Public
 		void update() {
-			Buttons::update(buttonPlay, GetMousePosition());
-			if(Buttons::update(buttonCredits, GetMousePosition())) Program::setScreen(Program::Screen::CREDITS);
-			if(Buttons::update(buttonQuit, GetMousePosition())) Program::close();
+			if (Buttons::update(buttonPlay, GetMousePosition())) Program::setScreen(Program::Screen::GAME);
+			if (Buttons::update(buttonCredits, GetMousePosition())) Program::setScreen(Program::Screen::CREDITS);
+			if (Buttons::update(buttonQuit, GetMousePosition())) Program::close();
 
 			draw();
 		}

@@ -19,24 +19,24 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\button.cpp" />
     <ClCompile Include="src\collisionManager.cpp" />
-    <ClCompile Include="src\credits.cpp" />
     <ClCompile Include="src\game\game.cpp" />
     <ClCompile Include="src\game\obstacle.cpp" />
     <ClCompile Include="src\game\player.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\mainMenu.cpp" />
+    <ClCompile Include="src\menu\button.cpp" />
+    <ClCompile Include="src\menu\credits.cpp" />
+    <ClCompile Include="src\menu\mainMenu.cpp" />
     <ClCompile Include="src\programManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\button.h" />
     <ClInclude Include="src\collisionManager.h" />
-    <ClInclude Include="src\credits.h" />
     <ClInclude Include="src\game\game.h" />
     <ClInclude Include="src\game\obstacle.h" />
     <ClInclude Include="src\game\player.h" />
-    <ClInclude Include="src\mainMenu.h" />
+    <ClInclude Include="src\menu\button.h" />
+    <ClInclude Include="src\menu\credits.h" />
+    <ClInclude Include="src\menu\mainMenu.h" />
     <ClInclude Include="src\programManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
