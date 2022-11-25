@@ -1,6 +1,7 @@
 #include "game.h"
 
 #include "player.h"
+#include "obstacle.h"
 
 #include "inputManager.h"
 
@@ -11,6 +12,7 @@ namespace MoonPatrol {
         // Private
 
         Players::Player playerOne;
+        Obstacles::Obstacle obstacle;
 
         float floorAltitude;
 
@@ -27,6 +29,8 @@ namespace MoonPatrol {
                 DrawRectangle(0, static_cast<int>(getFloorAltitude()), GetScreenWidth(), 20, PURPLE);
 
                 //DrawText("GAME PAUSED", static_cast<int>(screenWidth / 2 - MeasureText("GAME PAUSED", 40) / 2), static_cast<int>(screenHeight / 2 - 40), 40, GRAY);
+
+                Obstacles::draw(obstacle);
 
                 Players::draw(playerOne);
 
@@ -45,6 +49,8 @@ namespace MoonPatrol {
 
             Players::update(playerOne);
 
+            Obstacles::update(obstacle);
+
             draw();
         }
 
@@ -58,6 +64,11 @@ namespace MoonPatrol {
                 300.0f, 
                 200.0f, 200.0f,
                 RED);
+
+            Obstacles::init(obstacle,
+                getFloorAltitude(),
+                30, 30,
+                200.0f);
         }
     }
 }
