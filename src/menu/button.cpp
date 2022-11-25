@@ -8,11 +8,6 @@ namespace MoonPatrol {
 
 		// Public
 
-		void center(Button& button) {
-			button.x -= button.width * .5f;
-			button.y -= button.height * .5f;
-		}
-
 		Button create() {
 			Button button;
 			button.x = 0;
@@ -21,6 +16,17 @@ namespace MoonPatrol {
 			button.height = 0;
 			button.hovered = false;
 			return button;
+		}
+
+		void center(Button& button) {
+			button.x -= button.width * .5f;
+			button.y -= button.height * .5f;
+		}
+
+		void drawHeader(const char* text, Buttons::Button button) {
+			int x = static_cast<int>(button.x + static_cast<float>(button.width * .5f));
+			int y = static_cast<int>(button.y - static_cast<float>(button.width * .1f));
+			Utils::DrawCenteredText(text, x, y, static_cast<int>(GetScreenHeight() * .03f), RAYWHITE);
 		}
 
 		void draw(Button button) {

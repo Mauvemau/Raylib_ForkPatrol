@@ -2,6 +2,7 @@
 #include "button.h"
 
 #include "programManager.h"
+#include "utils.h"
 
 namespace MoonPatrol {
 	namespace MainMenu {
@@ -55,7 +56,15 @@ namespace MoonPatrol {
 				HideCursor();
 				DrawCircle(GetMouseX(), GetMouseY(), 5, RED);
 
-				DrawText("Menu", 0, 0, 120, WHITE);
+				Utils::DrawCenteredText("Fork Patrol", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .25f), 120, SKYBLUE);
+
+				const char* versionText = TextFormat("v%s", Program::getVersion());
+				int versionFontSize = static_cast<int>(GetScreenHeight() * .05f);
+				int versionTextWide = MeasureText(versionText, versionFontSize);
+				DrawText(versionText,
+					static_cast<int>((GetScreenWidth() * .99) - versionTextWide),
+					static_cast<int>((GetScreenHeight() * .99) - versionFontSize),
+					versionFontSize, WHITE);
 
 			EndDrawing();
 		}

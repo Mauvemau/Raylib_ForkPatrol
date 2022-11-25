@@ -19,6 +19,7 @@ namespace MoonPatrol {
 
         void center(Button& button);
 
+        void drawHeader(const char* text, Buttons::Button button);
         void draw(Button button);
         bool update(Button& button, Vector2 mousePos);
         void init(Button& button, float x, float y, float width, float height, const char* text);
