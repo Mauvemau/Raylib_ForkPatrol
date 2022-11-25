@@ -1,5 +1,7 @@
 #include "button.h"
+
 #include "collisionManager.h"
+#include "utils.h"
 
 namespace MoonPatrol {
 	namespace Buttons {
@@ -25,12 +27,16 @@ namespace MoonPatrol {
 			if (button.hovered)
 			{
 				DrawRectangle(static_cast<int>(button.x), static_cast<int>(button.y), static_cast<int>(button.width), static_cast<int>(button.height), DARKBLUE);
-				DrawText(button.text, static_cast<int>(button.x), static_cast<int>(button.y), 25, WHITE);
+				Utils::DrawCenteredText(button.text, static_cast<int>(button.x + (button.width * .5f)),
+					static_cast<int>(button.y + (button.height * .5f)),
+					30, WHITE);
 			}
 			else
 			{
 				DrawRectangle(static_cast<int>(button.x), static_cast<int>(button.y), static_cast<int>(button.width), static_cast<int>(button.height), WHITE);
-				DrawText(button.text, static_cast<int>(button.x), static_cast<int>(button.y), 25, DARKBLUE);
+				Utils::DrawCenteredText(button.text, static_cast<int>(button.x + (button.width * .5f)), 
+					static_cast<int>(button.y + (button.height * .5f)), 
+					30, DARKBLUE);
 			}
 		}
 

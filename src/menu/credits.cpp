@@ -17,9 +17,9 @@ namespace MoonPatrol {
 		void initButtons() {
 			Buttons::init(buttonReturn, 
 			20, 
-			static_cast<float>(GetScreenHeight() - 50), 
-			180, 
-			30, 
+			static_cast<float>(GetScreenHeight() - 80), 
+			240, 
+			60, 
 			"Back To Menu");
 		}
 

@@ -49,6 +49,9 @@
     <ClCompile Include="src\inputManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game\game.h">
@@ -76,6 +79,9 @@
       <Filter>Source Files\Menu\Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\inputManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

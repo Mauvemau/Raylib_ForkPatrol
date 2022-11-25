@@ -21,24 +21,24 @@ namespace MoonPatrol {
 			Buttons::init(buttonPlay,
 			(GetScreenWidth() * .5f),
 			(GetScreenHeight() * .5f),
-			120,
-			30,
+			180,
+			60,
 			"Play");
 			Buttons::center(buttonPlay);
 
 			Buttons::init(buttonCredits,
 			(GetScreenWidth() * .5f),
-			(GetScreenHeight() * .5f + 65),
-			100,
-			30,
+			(GetScreenHeight() * .5f + 80),
+			160,
+			60,
 			"Credits");
 			Buttons::center(buttonCredits);
 
 			Buttons::init(buttonQuit,
 			(GetScreenWidth() * .5f),
-			(GetScreenHeight() * .5f + 130),
-			50,
-			30,
+			(GetScreenHeight() * .5f + 160),
+			110,
+			60,
 			"Quit");
 			Buttons::center(buttonQuit);
 		}

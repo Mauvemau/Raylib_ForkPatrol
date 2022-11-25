@@ -29,6 +29,7 @@
     <ClCompile Include="src\menu\credits.cpp" />
     <ClCompile Include="src\menu\mainMenu.cpp" />
     <ClCompile Include="src\programManager.cpp" />
+    <ClCompile Include="src\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\collisionManager.h" />
@@ -40,6 +41,7 @@
     <ClInclude Include="src\menu\credits.h" />
     <ClInclude Include="src\menu\mainMenu.h" />
     <ClInclude Include="src\programManager.h" />
+    <ClInclude Include="src\utils.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
