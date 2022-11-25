@@ -1,5 +1,8 @@
 #include "player.h"
+
 #include "game.h"
+
+#include "collisionManager.h"
 
 #include <iostream>
 
@@ -37,6 +40,14 @@ namespace MoonPatrol {
 
 		void move(Player& player, int direction) {
 			player.x += direction * (player.speed * GetFrameTime());
+			if (Collisions::playerWall(player)) {
+				if (player.x < (GetScreenWidth() * .5f)) {
+					player.x = 0;
+				}
+				else {
+					player.x = static_cast<float>(GetScreenWidth() - player.width);
+				}
+			}
 		}
 
 		void draw(Player player) {

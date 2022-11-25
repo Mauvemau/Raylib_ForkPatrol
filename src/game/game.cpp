@@ -4,6 +4,8 @@
 #include "obstacle.h"
 
 #include "inputManager.h"
+#include "collisionManager.h"
+#include "programManager.h"
 
 #include "raylib.h"
 
@@ -50,6 +52,10 @@ namespace MoonPatrol {
             Players::update(playerOne);
 
             Obstacles::update(obstacle);
+
+            if (Collisions::playerObstacle(playerOne, obstacle)) {
+                Program::setScreen(Program::Screen::GAME);
+            }
 
             draw();
         }
