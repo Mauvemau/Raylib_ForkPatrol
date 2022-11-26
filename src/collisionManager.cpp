@@ -1,5 +1,7 @@
 #include "collisionManager.h"
 
+#include <iostream>
+
 namespace MoonPatrol {
 	namespace Collisions {
 
@@ -15,8 +17,20 @@ namespace MoonPatrol {
 					rec1Y + rec1Height > rec2Y);
 		}
 
+		bool CircleCircleCollision(float cir1X, float cir1Y, float cir1R, float cir2X, float cir2Y, float cir2R) {
+			float distX = cir1X - cir2X;
+			float distY = cir1Y - cir2Y;
+			float dist = sqrtf((distX * distX) + (distY * distY));
+
+			return (dist <= (cir1R + cir2R));
+		}
+
 		bool pointRectCollision(float pointX, float pointY, float recX, float recY, float recWidth, float recHeight) {
 			return (pointX > recX && pointX < (recX + recWidth) && pointY > recY && pointY < (recY + recHeight));
+		}
+
+		bool bulletEnemy(Bullets::Bullet bullet, Enemies::Enemy enemy) {
+			return CircleCircleCollision(bullet.x, bullet.y, bullet.radius, enemy.x, enemy.y, enemy.hitRadius);
 		}
 
 		bool enemyWall(Enemies::Enemy enemy) {

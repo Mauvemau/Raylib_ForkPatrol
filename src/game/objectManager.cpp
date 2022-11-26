@@ -1,5 +1,7 @@
 #include "objectManager.h"
 
+#include "game.h"
+
 // Objects
 #include "bullet.h"
 
@@ -81,6 +83,12 @@ namespace MoonPatrol {
 				Bullets::update(bullets[i]);
 				if (Collisions::bulletWall(bullets[i])) {
 					removeBullet(i);
+				}
+				for (int j = 0; j < activeEnemies; j++) {
+					if (Collisions::bulletEnemy(bullets[i], enemies[j])) {
+						removeEnemy(j);
+						Game::setScore(Game::getScore() + 25);
+					}
 				}
 			}
 			// Enemies

@@ -22,6 +22,12 @@ namespace MoonPatrol {
 				static_cast<int>((GetScreenHeight() * .99) - versionFontSize),
 				versionFontSize, { 40, 30, 15, 255 });
 
+			DrawText(TextFormat("Score: %i", Game::getScore()),
+				static_cast<int>(GetScreenHeight() * .01f),
+				static_cast<int>(GetScreenHeight() * .01f),
+				static_cast<int>(GetScreenHeight() * .05f),
+				RAYWHITE);
+
 #ifdef _DEBUG
 			DrawText(TextFormat("Elapsed Time: %f", Game::getTime()),
 				static_cast<int>((GetScreenWidth() * .01)),

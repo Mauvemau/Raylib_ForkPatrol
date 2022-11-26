@@ -40,6 +40,8 @@ namespace MoonPatrol {
 
         float floorAltitude;
 
+        int score;
+
         void draw();
 
         // --
@@ -87,6 +89,10 @@ namespace MoonPatrol {
             }
         }
 
+        void setScore(int value) {
+            score = value;
+        }
+
         bool getIsPaused() {
             return paused;
         }
@@ -98,6 +104,10 @@ namespace MoonPatrol {
         float getTime() {
             float curTime = (static_cast<int>(chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - startTime).count())) * .001f;
             return curTime;
+        }
+
+        int getScore() {
+            return score;
         }
 
         void update()
@@ -136,6 +146,8 @@ namespace MoonPatrol {
             paused = false;
             PauseMenu::init();
 
+            score = 0;
+
             ObjectManager::init();
 
             Terrains::init(floor, GetScreenWidth() * .1f, GetScreenHeight() * .875f, GetScreenHeight() * .85f, 250.0f, { 230, 180, 80, 255 });
@@ -154,6 +166,8 @@ namespace MoonPatrol {
                 getFloorAltitude(),
                 30, 30,
                 250.0f);
+
+            ObjectManager::addEnemy(GetScreenHeight() * .25f, GetScreenHeight() * .05f, 200.0f, 1);
         }
     }
 }
