@@ -46,6 +46,8 @@ namespace MoonPatrol {
 
         bool multiplayer;
 
+        float beginGameTime; // El juego comienza despues de __ segundos, dejando que los jugadores que prueben los controles.
+
         void handleGameLogic();
         void draw();
 
@@ -125,6 +127,10 @@ namespace MoonPatrol {
             score = value;
         }
 
+        float getBeginTime() {
+            return beginGameTime;
+        }
+
         bool getIsPaused() {
             return paused;
         }
@@ -157,9 +163,10 @@ namespace MoonPatrol {
 
                 ObjectManager::update();
 
-                Obstacles::update(obstacle);
-
-                handleGameLogic();
+                if (getTime() >= beginGameTime) {
+                    Obstacles::update(obstacle);
+                    handleGameLogic();
+                }
 
                 if (Collisions::playerObstacle(playerOne, obstacle)) {
                     Program::setScreen(Program::Screen::GAMEOVER);
@@ -198,6 +205,8 @@ namespace MoonPatrol {
             score = 0;
 
             enemySoftCap = 2;
+
+            beginGameTime = 3.0f;
 
             ObjectManager::init();
 

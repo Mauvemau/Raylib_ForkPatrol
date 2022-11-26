@@ -4,6 +4,7 @@
 
 #include "game/game.h"
 #include "program_manager.h"
+#include "utils.h"
 
 namespace MoonPatrol {
 	namespace Hud {
@@ -26,6 +27,14 @@ namespace MoonPatrol {
 				static_cast<int>(GetScreenHeight() * .01f),
 				static_cast<int>(GetScreenHeight() * .05f),
 				RAYWHITE);
+
+			if (Game::getTime() < Game::getBeginTime()) {
+				Utils::DrawCenteredText("GET READY", 
+					static_cast<int>(GetScreenWidth() * .5f), 
+					static_cast<int>(GetScreenHeight() * .5f), 
+					static_cast<int>(GetScreenHeight() * .075f), 
+					RED);
+			}
 
 #ifdef _DEBUG
 			DrawText(TextFormat("Elapsed Time: %f", Game::getTime()),
