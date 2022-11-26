@@ -28,6 +28,7 @@
     <ClCompile Include="src\menu\button.cpp" />
     <ClCompile Include="src\menu\credits.cpp" />
     <ClCompile Include="src\menu\gameOverMenu.cpp" />
+    <ClCompile Include="src\menu\hud.cpp" />
     <ClCompile Include="src\menu\mainMenu.cpp" />
     <ClCompile Include="src\menu\pauseMenu.cpp" />
     <ClCompile Include="src\programManager.cpp" />
@@ -42,6 +43,7 @@
     <ClInclude Include="src\menu\button.h" />
     <ClInclude Include="src\menu\credits.h" />
     <ClInclude Include="src\menu\gameOverMenu.h" />
+    <ClInclude Include="src\menu\hud.h" />
     <ClInclude Include="src\menu\mainMenu.h" />
     <ClInclude Include="src\menu\pauseMenu.h" />
     <ClInclude Include="src\programManager.h" />

@@ -11,6 +11,7 @@
 
 // Menus
 #include "menu/pauseMenu.h"
+#include "menu/hud.h"
 
 // Lib
 #include "raylib.h"
@@ -46,6 +47,9 @@ namespace MoonPatrol {
 
                 if (paused) {
                     PauseMenu::draw();
+                }
+                else {
+                    Hud::draw();
                 }
 
             EndDrawing();
