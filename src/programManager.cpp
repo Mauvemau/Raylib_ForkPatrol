@@ -3,6 +3,7 @@
 #include "raylib.h"
 
 // Screens
+#include "menu/gameOverMenu.h"
 #include "menu/mainMenu.h"
 #include "menu/credits.h"
 #include "game/game.h"
@@ -39,6 +40,9 @@ namespace MoonPatrol {
 			case MoonPatrol::Program::Screen::CREDITS:
 				Credits::init();
 				break;
+			case MoonPatrol::Program::Screen::GAMEOVER:
+				GameOverMenu::init();
+				break;
 			default:
 				break;
 			}
@@ -60,6 +64,9 @@ namespace MoonPatrol {
 				case MoonPatrol::Program::Screen::CREDITS:
 					Credits::update();
 					break;
+				case MoonPatrol::Program::Screen::GAMEOVER:
+					GameOverMenu::update();
+					break;
 				default:
 					break;
 				}
@@ -69,6 +76,7 @@ namespace MoonPatrol {
 		static void init() {
 			programShouldClose = false;
 			InitWindow(static_cast<int>(screenWidth), static_cast<int>(screenHeight), TextFormat("MoonPatrol - Altamirano - v%s", programVersion));
+			HideCursor();
 			SetExitKey(KEY_NULL);
 			setScreen(Screen::MAINMENU);
 		}

@@ -63,7 +63,6 @@ namespace MoonPatrol {
 					static_cast<int>((GetScreenHeight() * .99) - versionFontSize),
 					versionFontSize, WHITE);
 
-				HideCursor();
 				DrawCircle(GetMouseX(), GetMouseY(), 5, RED);
 
 			EndDrawing();

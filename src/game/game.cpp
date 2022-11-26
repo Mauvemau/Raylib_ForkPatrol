@@ -77,7 +77,7 @@ namespace MoonPatrol {
                 Obstacles::update(obstacle);
 
                 if (Collisions::playerObstacle(playerOne, obstacle)) {
-                    Program::setScreen(Program::Screen::GAME);
+                    Program::setScreen(Program::Screen::GAMEOVER);
                 }
             }
             else {

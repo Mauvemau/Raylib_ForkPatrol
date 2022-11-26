@@ -57,7 +57,6 @@ namespace MoonPatrol {
 			Buttons::draw(restartButton);
 			Buttons::draw(returnButton);
 
-			HideCursor();
 			DrawCircle(GetMouseX(), GetMouseY(), 5, RED);
 		}
 

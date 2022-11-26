@@ -92,7 +92,6 @@ namespace MoonPatrol {
 				Utils::DrawCenteredText("Developers:", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .2f), 35, SKYBLUE);
 				Utils::DrawCenteredText("Resources:", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .65f), 35, RED);
 
-				HideCursor();
 				DrawCircle(GetMouseX(), GetMouseY(), 5, RED);
 
 			EndDrawing();

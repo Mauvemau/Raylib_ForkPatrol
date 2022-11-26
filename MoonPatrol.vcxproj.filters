@@ -55,6 +55,9 @@
     <ClCompile Include="src\menu\pauseMenu.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="src\menu\gameOverMenu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game\game.h">
@@ -88,6 +91,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\menu\pauseMenu.h">
+      <Filter>Source Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\gameOverMenu.h">
       <Filter>Source Files\Menu</Filter>
     </ClInclude>
   </ItemGroup>

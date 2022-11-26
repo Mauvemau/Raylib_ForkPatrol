@@ -5,7 +5,8 @@ namespace MoonPatrol {
 		enum class Screen {
 			GAME,
 			MAINMENU,
-			CREDITS
+			CREDITS,
+			GAMEOVER
 		};
 
 		const char* getVersion();
