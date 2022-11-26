@@ -1,15 +1,13 @@
-#include "objectManager.h"
-
-#include "game.h"
-
-// Objects
-#include "bullet.h"
-
-// Managers
-#include "collisionManager.h"
+#include "object_manager.h"
 
 // Lib
 #include <iostream>
+
+#include "game.h"
+// Objects
+#include "bullet.h"
+// Managers
+#include "collision_manager.h"
 
 using namespace std;
 

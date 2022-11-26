@@ -1,12 +1,9 @@
 #include "weapon.h"
 
-#include "game.h"
-
-// Managers
-#include "objectManager.h"
-
-// lib
 #include <iostream>
+
+#include "game.h"
+#include "object_manager.h"
 
 using namespace std;
 

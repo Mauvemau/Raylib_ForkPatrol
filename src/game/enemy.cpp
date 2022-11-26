@@ -1,9 +1,9 @@
 #include "enemy.h"
 
-#include "collisionManager.h"
-#include "utils.h"
-
 #include <iostream>
+
+#include "collision_manager.h"
+#include "utils.h"
 
 namespace MoonPatrol {
 	namespace Enemies {

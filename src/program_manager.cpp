@@ -1,11 +1,11 @@
-#include "programManager.h"
+#include "program_manager.h"
 
 #include "raylib.h"
 
 // Screens
-#include "menu/gameOverMenu.h"
-#include "menu/gamemodeMenu.h"
-#include "menu/mainMenu.h"
+#include "menu/game_over_menu.h"
+#include "menu/gamemode_menu.h"
+#include "menu/main_menu.h"
 #include "menu/credits.h"
 #include "game/game.h"
 
@@ -26,7 +26,6 @@ namespace MoonPatrol {
 		static void uninit();
 		static void update();
 		static void init();
-
 
 		// --
 

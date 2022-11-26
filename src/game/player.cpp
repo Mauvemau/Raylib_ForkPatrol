@@ -1,11 +1,10 @@
 #include "player.h"
 
-#include "game.h"
-
-#include "collisionManager.h"
-#include "utils.h"
-
 #include <iostream>
+
+#include "game.h"
+#include "collision_manager.h"
+#include "utils.h"
 
 using namespace std;
 

@@ -1,12 +1,11 @@
-#include "gameOverMenu.h"
-#include "button.h"
-
-#include "game/game.h"
-
-#include "programManager.h"
-#include "utils.h"
+#include "game_over_menu.h"
 
 #include "raylib.h"
+
+#include "button.h"
+#include "game/game.h"
+#include "program_manager.h"
+#include "utils.h"
 
 namespace MoonPatrol {
 	namespace GameOverMenu {

@@ -1,23 +1,22 @@
 #include "game.h"
 
+// lib
+#include <chrono> // Usando la libreria chrono para lograr un reloj que sea lo mas perfecto posible.
+
+#include "raylib.h"
+
 // Objects
 #include "player.h"
 #include "obstacle.h"
 #include "terrain.h"
-
 // Managers
-#include "inputManager.h"
-#include "collisionManager.h"
-#include "programManager.h"
-#include "objectManager.h"
-
-// Menus
-#include "menu/pauseMenu.h"
+#include "input_manager.h"
+#include "collision_manager.h"
+#include "program_manager.h"
+#include "object_manager.h"
+// Layout Menus
+#include "menu/pause_menu.h"
 #include "menu/hud.h"
-
-// Lib
-#include "raylib.h"
-#include <chrono> // Usando la libreria chrono para lograr un reloj que sea lo mas perfecto posible.
 
 using namespace std;
 

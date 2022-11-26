@@ -1,8 +1,8 @@
 #pragma once
 
-#include "weapon.h"
-
 #include "raylib.h"
+
+#include "weapon.h"
 
 namespace MoonPatrol {
 	static const int amountWeapons = 6;

@@ -1,7 +1,7 @@
-#include "mainMenu.h"
-#include "button.h"
+#include "main_menu.h"
 
-#include "programManager.h"
+#include "button.h"
+#include "program_manager.h"
 #include "utils.h"
 
 namespace MoonPatrol {

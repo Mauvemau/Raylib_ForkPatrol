@@ -1,9 +1,8 @@
-#include "pauseMenu.h"
+#include "pause_menu.h"
+
 #include "button.h"
-
 #include "game/game.h"
-
-#include "programManager.h"
+#include "program_manager.h"
 #include "utils.h"
 
 namespace MoonPatrol {

@@ -1,7 +1,7 @@
-#include "inputManager.h"
+#include "input_manager.h"
 
-#include "programManager.h"
 #include "game/game.h"
+#include "program_manager.h"
 
 namespace MoonPatrol {
 	namespace Input {

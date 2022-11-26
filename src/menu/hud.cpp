@@ -1,10 +1,9 @@
 #include "hud.h"
 
-#include "game/game.h"
-
-#include "programManager.h"
-
 #include "raylib.h"
+
+#include "game/game.h"
+#include "program_manager.h"
 
 namespace MoonPatrol {
 	namespace Hud {

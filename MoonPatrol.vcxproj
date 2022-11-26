@@ -19,46 +19,46 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\collisionManager.cpp" />
+    <ClCompile Include="src\collision_manager.cpp" />
     <ClCompile Include="src\game\bullet.cpp" />
     <ClCompile Include="src\game\enemy.cpp" />
     <ClCompile Include="src\game\game.cpp" />
-    <ClCompile Include="src\game\objectManager.cpp" />
+    <ClCompile Include="src\game\object_manager.cpp" />
     <ClCompile Include="src\game\obstacle.cpp" />
     <ClCompile Include="src\game\player.cpp" />
     <ClCompile Include="src\game\terrain.cpp" />
     <ClCompile Include="src\game\weapon.cpp" />
-    <ClCompile Include="src\inputManager.cpp" />
+    <ClCompile Include="src\input_manager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\menu\button.cpp" />
     <ClCompile Include="src\menu\credits.cpp" />
-    <ClCompile Include="src\menu\gamemodeMenu.cpp" />
-    <ClCompile Include="src\menu\gameOverMenu.cpp" />
+    <ClCompile Include="src\menu\gamemode_menu.cpp" />
+    <ClCompile Include="src\menu\game_over_menu.cpp" />
     <ClCompile Include="src\menu\hud.cpp" />
-    <ClCompile Include="src\menu\mainMenu.cpp" />
-    <ClCompile Include="src\menu\pauseMenu.cpp" />
-    <ClCompile Include="src\programManager.cpp" />
+    <ClCompile Include="src\menu\main_menu.cpp" />
+    <ClCompile Include="src\menu\pause_menu.cpp" />
+    <ClCompile Include="src\program_manager.cpp" />
     <ClCompile Include="src\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\collisionManager.h" />
+    <ClInclude Include="src\collision_manager.h" />
     <ClInclude Include="src\game\bullet.h" />
     <ClInclude Include="src\game\enemy.h" />
     <ClInclude Include="src\game\game.h" />
-    <ClInclude Include="src\game\objectManager.h" />
+    <ClInclude Include="src\game\object_manager.h" />
     <ClInclude Include="src\game\obstacle.h" />
     <ClInclude Include="src\game\player.h" />
     <ClInclude Include="src\game\terrain.h" />
     <ClInclude Include="src\game\weapon.h" />
-    <ClInclude Include="src\inputManager.h" />
+    <ClInclude Include="src\input_manager.h" />
     <ClInclude Include="src\menu\button.h" />
     <ClInclude Include="src\menu\credits.h" />
-    <ClInclude Include="src\menu\gamemodeMenu.h" />
-    <ClInclude Include="src\menu\gameOverMenu.h" />
+    <ClInclude Include="src\menu\gamemode_menu.h" />
+    <ClInclude Include="src\menu\game_over_menu.h" />
     <ClInclude Include="src\menu\hud.h" />
-    <ClInclude Include="src\menu\mainMenu.h" />
-    <ClInclude Include="src\menu\pauseMenu.h" />
-    <ClInclude Include="src\programManager.h" />
+    <ClInclude Include="src\menu\main_menu.h" />
+    <ClInclude Include="src\menu\pause_menu.h" />
+    <ClInclude Include="src\program_manager.h" />
     <ClInclude Include="src\utils.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

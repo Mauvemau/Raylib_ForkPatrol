@@ -1,6 +1,6 @@
 #include "button.h"
 
-#include "collisionManager.h"
+#include "collision_manager.h"
 #include "utils.h"
 
 namespace MoonPatrol {

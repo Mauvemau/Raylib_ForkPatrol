@@ -31,31 +31,31 @@
     <ClCompile Include="src\game\player.cpp">
       <Filter>Source Files\Game\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\programManager.cpp">
+    <ClCompile Include="src\program_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\collisionManager.cpp">
+    <ClCompile Include="src\collision_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\menu\credits.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="src\menu\mainMenu.cpp">
+    <ClCompile Include="src\menu\main_menu.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
     <ClCompile Include="src\menu\button.cpp">
       <Filter>Source Files\Menu\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\inputManager.cpp">
+    <ClCompile Include="src\input_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\menu\pauseMenu.cpp">
+    <ClCompile Include="src\menu\pause_menu.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="src\menu\gameOverMenu.cpp">
+    <ClCompile Include="src\menu\game_over_menu.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
     <ClCompile Include="src\menu\hud.cpp">
@@ -64,7 +64,7 @@
     <ClCompile Include="src\game\terrain.cpp">
       <Filter>Source Files\Game\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\objectManager.cpp">
+    <ClCompile Include="src\game\object_manager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="src\game\bullet.cpp">
@@ -76,7 +76,7 @@
     <ClCompile Include="src\game\enemy.cpp">
       <Filter>Source Files\Game\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\menu\gamemodeMenu.cpp">
+    <ClCompile Include="src\menu\gamemode_menu.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
   </ItemGroup>
@@ -90,31 +90,31 @@
     <ClInclude Include="src\game\player.h">
       <Filter>Source Files\Game\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\programManager.h">
+    <ClInclude Include="src\program_manager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\collisionManager.h">
+    <ClInclude Include="src\collision_manager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\menu\credits.h">
       <Filter>Source Files\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="src\menu\mainMenu.h">
+    <ClInclude Include="src\menu\main_menu.h">
       <Filter>Source Files\Menu</Filter>
     </ClInclude>
     <ClInclude Include="src\menu\button.h">
       <Filter>Source Files\Menu\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\inputManager.h">
+    <ClInclude Include="src\input_manager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\utils.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\menu\pauseMenu.h">
+    <ClInclude Include="src\menu\pause_menu.h">
       <Filter>Source Files\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="src\menu\gameOverMenu.h">
+    <ClInclude Include="src\menu\game_over_menu.h">
       <Filter>Source Files\Menu</Filter>
     </ClInclude>
     <ClInclude Include="src\menu\hud.h">
@@ -123,7 +123,7 @@
     <ClInclude Include="src\game\terrain.h">
       <Filter>Source Files\Game\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\objectManager.h">
+    <ClInclude Include="src\game\object_manager.h">
       <Filter>Source Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="src\game\bullet.h">
@@ -135,7 +135,7 @@
     <ClInclude Include="src\game\enemy.h">
       <Filter>Source Files\Game\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\menu\gamemodeMenu.h">
+    <ClInclude Include="src\menu\gamemode_menu.h">
       <Filter>Source Files\Menu</Filter>
     </ClInclude>
   </ItemGroup>
