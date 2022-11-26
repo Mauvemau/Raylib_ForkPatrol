@@ -17,6 +17,8 @@ namespace MoonPatrol {
 
         Button create();
 
+        bool getIsHovered(Button button);
+
         void center(Button& button);
 
         void drawHeader(const char* text, Buttons::Button button);

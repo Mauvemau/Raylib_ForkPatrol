@@ -40,6 +40,14 @@ namespace MoonPatrol {
 			return player;
 		}
 
+		void drawHeader(Player player, const char* text) {
+			Utils::DrawCenteredText(text, 
+				static_cast<int>(player.x + (player.width * .5f)),
+				static_cast<int>(player.y - (player.height * .5f)),
+				static_cast<int>(GetScreenHeight() * .025f), 
+				player.color);
+		}
+
 		void shoot(Player& player) {
 			for (int i = 0; i < amountWeapons; i++) {
 				Weapons::shoot(player.weapons[i], player.x + (player.width * .5f), player.y + (player.height * .5f), Utils::DegreesToRadians(-90.0f), player.color);

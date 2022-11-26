@@ -31,7 +31,7 @@ namespace MoonPatrol {
 
 		void draw(Bullet bullet) {
 			DrawCircle(static_cast<int>(bullet.x), static_cast<int>(bullet.y), bullet.radius, bullet.color);
-			DrawCircle(static_cast<int>(bullet.x), static_cast<int>(bullet.y), bullet.radius * .9f, Fade(RAYWHITE, .3f));
+			DrawCircle(static_cast<int>(bullet.x), static_cast<int>(bullet.y), bullet.radius * .9f, Fade(RAYWHITE, .5f));
 		}
 
 		void update(Bullet& bullet) {

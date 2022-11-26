@@ -87,6 +87,11 @@ namespace MoonPatrol {
                 if(multiplayer)
                     Players::draw(playerTwo);
 
+                if (multiplayer) {
+                    Players::drawHeader(playerOne, "P1");
+                    Players::drawHeader(playerTwo, "P2");
+                }
+
                 ObjectManager::draw();
 
                 Terrains::draw(floor);
@@ -202,7 +207,7 @@ namespace MoonPatrol {
             Terrains::init(backgroundFar, GetScreenWidth() * .3f, GetScreenHeight() * .7f, GetScreenHeight() * .4f, 50.0f, { 40, 30, 15, 255 });
 
             Players::init(playerOne,
-                GetScreenWidth() * .25f, 
+                GetScreenWidth() * .22f, 
                 getFloorAltitude(),
                 50, 50,
                 300.0f, 
@@ -210,7 +215,7 @@ namespace MoonPatrol {
                 RED);
 
             Players::init(playerTwo,
-                GetScreenWidth() * .25f,
+                GetScreenWidth() * .28f,
                 getFloorAltitude(),
                 50, 50,
                 300.0f,

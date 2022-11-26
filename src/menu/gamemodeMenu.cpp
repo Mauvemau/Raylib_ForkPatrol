@@ -50,7 +50,26 @@ namespace MoonPatrol {
 			BeginDrawing();
 				ClearBackground(BLACK);
 
-				Utils::DrawCenteredText("Select a Gamemode", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .1f), 60, ORANGE);
+				Utils::DrawCenteredText("Select a Gamemode", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .12f), 60, ORANGE);
+
+				if (Buttons::getIsHovered(singlePlayerButton)) {
+					Utils::DrawCenteredText("Game Controls", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .48f), 35, SKYBLUE);
+
+					Utils::DrawCenteredText("[A] [D] to move Left and Right.", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .53f), 25, RAYWHITE);
+					Utils::DrawCenteredText("[W] to Jump!", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .58f), 25, RAYWHITE);
+					Utils::DrawCenteredText("[S] to Shoot your gun.", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .63f), 25, RAYWHITE);
+				}
+				if (Buttons::getIsHovered(multiPlayerButton)) {
+					Utils::DrawCenteredText("(P1) Controls", static_cast<int>(GetScreenWidth() * .25f), static_cast<int>(GetScreenHeight() * .49f), 30, { 220, 130, 130, 255 });
+					Utils::DrawCenteredText("[A] [D] to move Left and Right.", static_cast<int>(GetScreenWidth() * .25f), static_cast<int>(GetScreenHeight() * .53f), 25, RED);
+					Utils::DrawCenteredText("[W] to Jump!", static_cast<int>(GetScreenWidth() * .25f), static_cast<int>(GetScreenHeight() * .58f), 25, RED);
+					Utils::DrawCenteredText("[S] to Shoot your gun.", static_cast<int>(GetScreenWidth() * .25f), static_cast<int>(GetScreenHeight() * .63f), 25, RED);
+
+					Utils::DrawCenteredText("(P2) Controls", static_cast<int>(GetScreenWidth() * .75f), static_cast<int>(GetScreenHeight() * .49f), 30, SKYBLUE);
+					Utils::DrawCenteredText("[< ] [ >] to move Left and Right.", static_cast<int>(GetScreenWidth() * .75f), static_cast<int>(GetScreenHeight() * .53f), 25, BLUE);
+					Utils::DrawCenteredText("[UP] to Jump!", static_cast<int>(GetScreenWidth() * .75f), static_cast<int>(GetScreenHeight() * .58f), 25, BLUE);
+					Utils::DrawCenteredText("[DOWN] to Shoot your gun.", static_cast<int>(GetScreenWidth() * .75f), static_cast<int>(GetScreenHeight() * .63f), 25, BLUE);
+				}
 
 				Buttons::draw(singlePlayerButton);
 				Buttons::draw(multiPlayerButton);

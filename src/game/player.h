@@ -20,6 +20,10 @@ namespace MoonPatrol {
 			Weapons::Weapon weapons[amountWeapons];
 		};
 
+		Player create();
+
+		void drawHeader(Player player, const char* text);
+
 		void shoot(Player& player);
 		void jump(Player& player);
 		void move(Player& player, int direction);

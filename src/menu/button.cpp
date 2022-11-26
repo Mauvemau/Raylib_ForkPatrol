@@ -18,6 +18,10 @@ namespace MoonPatrol {
 			return button;
 		}
 
+		bool getIsHovered(Button button) {
+			return button.hovered;
+		}
+
 		void center(Button& button) {
 			button.x -= button.width * .5f;
 			button.y -= button.height * .5f;
