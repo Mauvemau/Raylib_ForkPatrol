@@ -3,6 +3,7 @@
 #include "game.h"
 
 #include "collisionManager.h"
+#include "utils.h"
 
 #include <iostream>
 
@@ -10,10 +11,17 @@ using namespace std;
 
 namespace MoonPatrol {
 	namespace Players {
-
 		// Private
 
+		void InitVehicleWeapons(Weapons::Weapon weapons[]);
+
 		// --
+
+		void InitVehicleWeapons(Weapons::Weapon weapons[]) {
+			for (int i = 0; i < amountWeapons; i++) {
+				weapons[i] = Weapons::create();
+			}
+		}
 
 		// Public
 
@@ -28,7 +36,14 @@ namespace MoonPatrol {
 			player.gravity = 0;
 			player.jumpForce = 0;
 			player.color = RAYWHITE;
+			InitVehicleWeapons(player.weapons);
 			return player;
+		}
+
+		void shoot(Player& player) {
+			for (int i = 0; i < amountWeapons; i++) {
+				Weapons::shoot(player.weapons[i], player.x + (player.width * .5f), player.y + (player.height * .5f), Utils::DegreesToRadians(-90.0f));
+			}
 		}
 
 		void jump(Player& player) {
@@ -77,6 +92,7 @@ namespace MoonPatrol {
 			player.gravity = gravity;
 			player.jumpForce = jumpForce;
 			player.color = color;
+			player.weapons[0] = Weapons::createWeaponFromTemplate(Weapons::Types::GUN);
 		}
 	}
 }

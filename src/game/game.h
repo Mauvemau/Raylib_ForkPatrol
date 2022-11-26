@@ -7,6 +7,7 @@ namespace MoonPatrol {
 
 		bool getIsPaused();
 		float getFloorAltitude();
+		float getTime();
 
 		void update();
 		void init();

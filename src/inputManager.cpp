@@ -17,7 +17,7 @@ namespace MoonPatrol {
 				Players::jump(player);
 			}
 			if (IsKeyDown(KEY_LEFT_CONTROL)) {
-				// shooting
+				Players::shoot(player);
 			}
 		}
 

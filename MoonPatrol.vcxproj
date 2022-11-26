@@ -26,6 +26,7 @@
     <ClCompile Include="src\game\obstacle.cpp" />
     <ClCompile Include="src\game\player.cpp" />
     <ClCompile Include="src\game\terrain.cpp" />
+    <ClCompile Include="src\game\weapon.cpp" />
     <ClCompile Include="src\inputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\menu\button.cpp" />
@@ -45,6 +46,7 @@
     <ClInclude Include="src\game\obstacle.h" />
     <ClInclude Include="src\game\player.h" />
     <ClInclude Include="src\game\terrain.h" />
+    <ClInclude Include="src\game\weapon.h" />
     <ClInclude Include="src\inputManager.h" />
     <ClInclude Include="src\menu\button.h" />
     <ClInclude Include="src\menu\credits.h" />

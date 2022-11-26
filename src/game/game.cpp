@@ -9,6 +9,7 @@
 #include "inputManager.h"
 #include "collisionManager.h"
 #include "programManager.h"
+#include "objectManager.h"
 
 // Menus
 #include "menu/pauseMenu.h"
@@ -16,6 +17,9 @@
 
 // Lib
 #include "raylib.h"
+#include <chrono>
+
+using namespace std;
 
 namespace MoonPatrol {
     namespace Game {
@@ -30,6 +34,8 @@ namespace MoonPatrol {
         Terrains::Terrain backgroundFar;
         Terrains::Terrain floor;
 
+        chrono::steady_clock::time_point startTime;
+        chrono::steady_clock::time_point pauseStartTime; // En caso del juego estar pausado por determinado tiempo, se lo sumamos al startTime.
         bool paused;
 
         float floorAltitude;
@@ -55,6 +61,8 @@ namespace MoonPatrol {
 
                 Players::draw(playerOne);
 
+                ObjectManager::draw();
+
                 Terrains::draw(floor);
 
                 if (paused) {
@@ -71,6 +79,12 @@ namespace MoonPatrol {
 
         void setPaused(bool value) {
             paused = value;
+            if (paused) {
+                pauseStartTime = chrono::steady_clock::now();
+            }
+            else {
+                startTime += (chrono::steady_clock::now() - pauseStartTime);
+            }
         }
 
         bool getIsPaused() {
@@ -81,6 +95,11 @@ namespace MoonPatrol {
             return floorAltitude;
         }
 
+        float getTime() {
+            float curTime = (static_cast<int>(chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - startTime).count())) * .001f;
+            return curTime;
+        }
+
         void update()
         {
             Input::updateGeneral();
@@ -89,6 +108,8 @@ namespace MoonPatrol {
                 Input::updatePlayerOne(playerOne);
 
                 Players::update(playerOne);
+
+                ObjectManager::update();
 
                 Obstacles::update(obstacle);
 
@@ -111,8 +132,11 @@ namespace MoonPatrol {
         {
             floorAltitude = GetScreenHeight() * .85f;
 
+            startTime = chrono::steady_clock::now();
             paused = false;
             PauseMenu::init();
+
+            ObjectManager::init();
 
             Terrains::init(floor, GetScreenWidth() * .1f, GetScreenHeight() * .875f, GetScreenHeight() * .85f, 250.0f, { 230, 180, 80, 255 });
             Terrains::init(backgroundClose, GetScreenWidth() * .2f, GetScreenHeight() * .7f, GetScreenHeight() * .5f, 100.0f, { 145, 120, 50, 255 });

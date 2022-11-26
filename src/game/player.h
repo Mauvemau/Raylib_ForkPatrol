@@ -1,8 +1,11 @@
 #pragma once
 
+#include "weapon.h"
+
 #include "raylib.h"
 
 namespace MoonPatrol {
+	static const int amountWeapons = 6;
 	namespace Players {
 		struct Player {
 			float x;
@@ -14,8 +17,10 @@ namespace MoonPatrol {
 			float gravity;
 			float jumpForce;
 			Color color;
+			Weapons::Weapon weapons[amountWeapons];
 		};
 
+		void shoot(Player& player);
 		void jump(Player& player);
 		void move(Player& player, int direction);
 
