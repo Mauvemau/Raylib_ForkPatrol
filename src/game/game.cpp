@@ -17,7 +17,7 @@
 
 // Lib
 #include "raylib.h"
-#include <chrono>
+#include <chrono> // Usando la libreria chrono para lograr un reloj que sea lo mas perfecto posible.
 
 using namespace std;
 
