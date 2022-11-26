@@ -18,7 +18,7 @@ namespace MoonPatrol {
 			DrawText(versionText,
 				static_cast<int>((GetScreenWidth() * .99) - versionTextWide),
 				static_cast<int>((GetScreenHeight() * .99) - versionFontSize),
-				versionFontSize, WHITE);
+				versionFontSize, { 40, 30, 15, 255 });
 		}
 	}
 }

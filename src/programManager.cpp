@@ -19,7 +19,7 @@ namespace MoonPatrol {
 
 		bool programShouldClose;
 
-		const char* programVersion = "0.1";
+		const char* programVersion = "0.2";
 
 		static void initScreen(Screen screen);
 		static void uninit();

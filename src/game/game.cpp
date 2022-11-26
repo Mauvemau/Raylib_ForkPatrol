@@ -51,8 +51,6 @@ namespace MoonPatrol {
 
                 DrawRectangle(0, static_cast<int>(getFloorAltitude()), GetScreenWidth(), 20, GRAY);
 
-                //DrawText("GAME PAUSED", static_cast<int>(screenWidth / 2 - MeasureText("GAME PAUSED", 40) / 2), static_cast<int>(screenHeight / 2 - 40), 40, GRAY);
-
                 Obstacles::draw(obstacle);
 
                 Players::draw(playerOne);
