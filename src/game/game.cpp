@@ -130,6 +130,9 @@ namespace MoonPatrol {
                 if (Collisions::playerObstacle(playerOne, obstacle)) {
                     Program::setScreen(Program::Screen::GAMEOVER);
                 }
+                if (playerOne.x > (obstacle.x + obstacle.width)) {
+                    Obstacles::handleDodgeLogic(obstacle);
+                }
             }
             else {
                 PauseMenu::update();

@@ -8,9 +8,12 @@ namespace MoonPatrol {
 			float width;
 			float height;
 			float speed;
+			float dodged;
 		};
 
 		Obstacle create();
+
+		void handleDodgeLogic(Obstacle& obstacle);
 
 		void draw(Obstacle obstacle);
 		void update(Obstacle& obstacle);

@@ -1,5 +1,7 @@
 #include "obstacle.h"
 
+#include "game.h"
+
 #include "raylib.h"
 
 namespace MoonPatrol {
@@ -24,7 +26,15 @@ namespace MoonPatrol {
 			obstacle.width = 0;
 			obstacle.height = 0;
 			obstacle.speed = 0;
+			obstacle.dodged = false;
 			return obstacle;
+		}
+
+		void handleDodgeLogic(Obstacle& obstacle) {
+			if (!obstacle.dodged) {
+				obstacle.dodged = true;
+				Game::setScore(Game::getScore() + 10);
+			}
 		}
 
 		void draw(Obstacle obstacle) {
@@ -36,6 +46,7 @@ namespace MoonPatrol {
 			move(obstacle, -1);
 			if (obstacle.x < (-obstacle.width)) {
 				obstacle.x = static_cast<float>((GetScreenWidth() * 1) + obstacle.width);
+				obstacle.dodged = false;
 			}
 		}
 
@@ -46,6 +57,7 @@ namespace MoonPatrol {
 			obstacle.width = width;
 			obstacle.height = height;
 			obstacle.speed = speed;
+			obstacle.dodged = false;
 		}
 
 	}
