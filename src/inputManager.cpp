@@ -1,6 +1,7 @@
 #include "inputManager.h"
 
 #include "programManager.h"
+#include "game/game.h"
 
 namespace MoonPatrol {
 	namespace Input {
@@ -16,11 +17,13 @@ namespace MoonPatrol {
 				Players::jump(player);
 			}
 			if (IsKeyDown(KEY_LEFT_CONTROL)) {
-
+				// shooting
 			}
-			//
+		}
+
+		void updateGeneral() {
 			if (IsKeyPressed(KEY_ESCAPE)) {
-				Program::setScreen(Program::Screen::MAINMENU);
+				Game::setPaused(!Game::getIsPaused());
 			}
 		}
 	}

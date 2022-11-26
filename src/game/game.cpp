@@ -1,12 +1,18 @@
 #include "game.h"
 
+// Objects
 #include "player.h"
 #include "obstacle.h"
 
+// Managers
 #include "inputManager.h"
 #include "collisionManager.h"
 #include "programManager.h"
 
+// Menus
+#include "menu/pauseMenu.h"
+
+// Lib
 #include "raylib.h"
 
 namespace MoonPatrol {
@@ -15,6 +21,8 @@ namespace MoonPatrol {
 
         Players::Player playerOne;
         Obstacles::Obstacle obstacle;
+
+        bool paused;
 
         float floorAltitude;
 
@@ -36,10 +44,22 @@ namespace MoonPatrol {
 
                 Players::draw(playerOne);
 
+                if (paused) {
+                    PauseMenu::draw();
+                }
+
             EndDrawing();
         }
 
         // Public
+
+        void setPaused(bool value) {
+            paused = value;
+        }
+
+        bool getIsPaused() {
+            return paused;
+        }
 
         float getFloorAltitude() {
             return floorAltitude;
@@ -47,14 +67,21 @@ namespace MoonPatrol {
 
         void update()
         {
-            Input::updatePlayerOne(playerOne);
+            Input::updateGeneral();
 
-            Players::update(playerOne);
+            if (!paused) {
+                Input::updatePlayerOne(playerOne);
 
-            Obstacles::update(obstacle);
+                Players::update(playerOne);
 
-            if (Collisions::playerObstacle(playerOne, obstacle)) {
-                Program::setScreen(Program::Screen::GAME);
+                Obstacles::update(obstacle);
+
+                if (Collisions::playerObstacle(playerOne, obstacle)) {
+                    Program::setScreen(Program::Screen::GAME);
+                }
+            }
+            else {
+                PauseMenu::update();
             }
 
             draw();
@@ -63,6 +90,10 @@ namespace MoonPatrol {
         void init()
         {
             floorAltitude = GetScreenHeight() * .85f;
+
+            paused = false;
+            PauseMenu::init();
+
             Players::init(playerOne,
                 GetScreenWidth() * .25f, 
                 getFloorAltitude(),

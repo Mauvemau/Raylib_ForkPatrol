@@ -4,5 +4,6 @@
 namespace MoonPatrol {
 	namespace Input {
 		void updatePlayerOne(Players::Player& player);
+		void updateGeneral();
 	}
 }

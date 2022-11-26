@@ -37,7 +37,7 @@ namespace MoonPatrol {
 
 			Buttons::init(buttonQuit,
 			(GetScreenWidth() * .5f),
-			(GetScreenHeight() * .5f + 160),
+			(GetScreenHeight() * .5f + 260),
 			110,
 			60,
 			"Quit");
@@ -53,9 +53,6 @@ namespace MoonPatrol {
 				Buttons::draw(buttonCredits);
 				Buttons::draw(buttonQuit);
 
-				HideCursor();
-				DrawCircle(GetMouseX(), GetMouseY(), 5, RED);
-
 				Utils::DrawCenteredText("Fork Patrol", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .25f), 120, SKYBLUE);
 
 				const char* versionText = TextFormat("v%s", Program::getVersion());
@@ -65,6 +62,9 @@ namespace MoonPatrol {
 					static_cast<int>((GetScreenWidth() * .99) - versionTextWide),
 					static_cast<int>((GetScreenHeight() * .99) - versionFontSize),
 					versionFontSize, WHITE);
+
+				HideCursor();
+				DrawCircle(GetMouseX(), GetMouseY(), 5, RED);
 
 			EndDrawing();
 		}
