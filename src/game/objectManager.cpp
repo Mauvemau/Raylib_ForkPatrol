@@ -44,9 +44,9 @@ namespace MoonPatrol {
 			}
 		}
 
-		void addBullet(float x, float y, float radius, float directionAngle, float speed, bool hurtsPlayer) {
+		void addBullet(float x, float y, float radius, float directionAngle, float speed, bool hurtsPlayer, Color color) {
 			if (activeBullets < maxBullets) {
-				Bullets::init(bullets[activeBullets], x, y, radius, directionAngle, speed, hurtsPlayer);
+				Bullets::init(bullets[activeBullets], x, y, radius, directionAngle, speed, hurtsPlayer, color);
 				activeBullets++;
 			}
 		}

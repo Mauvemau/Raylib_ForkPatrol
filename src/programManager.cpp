@@ -4,6 +4,7 @@
 
 // Screens
 #include "menu/gameOverMenu.h"
+#include "menu/gamemodeMenu.h"
 #include "menu/mainMenu.h"
 #include "menu/credits.h"
 #include "game/game.h"
@@ -40,6 +41,9 @@ namespace MoonPatrol {
 			case MoonPatrol::Program::Screen::CREDITS:
 				Credits::init();
 				break;
+			case MoonPatrol::Program::Screen::GAMEMODE:
+				GamemodeMenu::init();
+				break;
 			case MoonPatrol::Program::Screen::GAMEOVER:
 				GameOverMenu::init();
 				break;
@@ -63,6 +67,9 @@ namespace MoonPatrol {
 					break;
 				case MoonPatrol::Program::Screen::CREDITS:
 					Credits::update();
+					break;
+				case MoonPatrol::Program::Screen::GAMEMODE:
+					GamemodeMenu::update();
 					break;
 				case MoonPatrol::Program::Screen::GAMEOVER:
 					GameOverMenu::update();

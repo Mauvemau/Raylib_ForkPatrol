@@ -3,6 +3,7 @@
 namespace MoonPatrol {
 	namespace Game {
 
+		void setGameMode(bool value);
 		void setPaused(bool value);
 		void setScore(int value);
 

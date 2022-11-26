@@ -27,6 +27,7 @@ namespace MoonPatrol {
 
         // Objects
         Players::Player playerOne;
+        Players::Player playerTwo;
         Obstacles::Obstacle obstacle;
 
         // Background
@@ -43,6 +44,8 @@ namespace MoonPatrol {
         int score;
 
         int enemySoftCap;
+
+        bool multiplayer;
 
         void handleGameLogic();
         void draw();
@@ -81,6 +84,8 @@ namespace MoonPatrol {
                 Obstacles::draw(obstacle);
 
                 Players::draw(playerOne);
+                if(multiplayer)
+                    Players::draw(playerTwo);
 
                 ObjectManager::draw();
 
@@ -97,6 +102,10 @@ namespace MoonPatrol {
         }
 
         // Public
+
+        void setGameMode(bool value) {
+            multiplayer = value;
+        }
 
         void setPaused(bool value) {
             paused = value;
@@ -135,8 +144,12 @@ namespace MoonPatrol {
 
             if (!paused) {
                 Input::updatePlayerOne(playerOne);
+                if(multiplayer)
+                    Input::updatePlayerTwo(playerTwo);
 
                 Players::update(playerOne);
+                if(multiplayer)
+                    Players::update(playerTwo);
 
                 ObjectManager::update();
 
@@ -149,6 +162,14 @@ namespace MoonPatrol {
                 }
                 if (playerOne.x > (obstacle.x + obstacle.width)) {
                     Obstacles::handleDodgeLogic(obstacle);
+                }
+                if (multiplayer) {
+                    if (Collisions::playerObstacle(playerTwo, obstacle)) {
+                        Program::setScreen(Program::Screen::GAMEOVER);
+                    }
+                    if (playerTwo.x > (obstacle.x + obstacle.width)) {
+                        Obstacles::handleDodgeLogic(obstacle);
+                    }
                 }
 
                 Terrains::update(floor);
@@ -187,6 +208,14 @@ namespace MoonPatrol {
                 300.0f, 
                 200.0f, 200.0f,
                 RED);
+
+            Players::init(playerTwo,
+                GetScreenWidth() * .25f,
+                getFloorAltitude(),
+                50, 50,
+                300.0f,
+                200.0f, 200.0f,
+                BLUE);
 
             Obstacles::init(obstacle,
                 getFloorAltitude(),

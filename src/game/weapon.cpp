@@ -6,7 +6,6 @@
 #include "objectManager.h"
 
 // lib
-#include "raylib.h"
 #include <iostream>
 
 using namespace std;
@@ -55,11 +54,11 @@ namespace MoonPatrol {
 			return weapon;
 		}
 
-		void shoot(Weapon& weapon, float x, float y, float direction) {
+		void shoot(Weapon& weapon, float x, float y, float direction, Color color) {
 			if (weapon.fireRate > 0) {
 				if (weapon.fireRate < (Game::getTime() - weapon.lastShot)) {
 					weapon.lastShot = Game::getTime();
-					ObjectManager::addBullet(x, y, weapon.bulletCaliber, direction, weapon.firePower, weapon.hurtsPlayer);
+					ObjectManager::addBullet(x, y, weapon.bulletCaliber, direction, weapon.firePower, weapon.hurtsPlayer, color);
 				}
 			}
 		}

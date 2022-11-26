@@ -32,6 +32,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\menu\button.cpp" />
     <ClCompile Include="src\menu\credits.cpp" />
+    <ClCompile Include="src\menu\gamemodeMenu.cpp" />
     <ClCompile Include="src\menu\gameOverMenu.cpp" />
     <ClCompile Include="src\menu\hud.cpp" />
     <ClCompile Include="src\menu\mainMenu.cpp" />
@@ -52,6 +53,7 @@
     <ClInclude Include="src\inputManager.h" />
     <ClInclude Include="src\menu\button.h" />
     <ClInclude Include="src\menu\credits.h" />
+    <ClInclude Include="src\menu\gamemodeMenu.h" />
     <ClInclude Include="src\menu\gameOverMenu.h" />
     <ClInclude Include="src\menu\hud.h" />
     <ClInclude Include="src\menu\mainMenu.h" />

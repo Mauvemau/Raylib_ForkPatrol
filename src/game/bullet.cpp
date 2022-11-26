@@ -1,6 +1,5 @@
 #include "bullet.h"
 
-#include "raylib.h"
 #include <iostream>
 
 namespace MoonPatrol {
@@ -26,18 +25,20 @@ namespace MoonPatrol {
 			bullet.directionAngle = 0;
 			bullet.speed = 0;
 			bullet.hurtsPlayer = 0;
+			bullet.color = WHITE;
 			return bullet;
 		}
 
 		void draw(Bullet bullet) {
-			DrawCircle(static_cast<int>(bullet.x), static_cast<int>(bullet.y), bullet.radius, WHITE);
+			DrawCircle(static_cast<int>(bullet.x), static_cast<int>(bullet.y), bullet.radius, bullet.color);
+			DrawCircle(static_cast<int>(bullet.x), static_cast<int>(bullet.y), bullet.radius * .9f, Fade(RAYWHITE, .3f));
 		}
 
 		void update(Bullet& bullet) {
 			move(bullet);
 		}
 
-		void init(Bullet& bullet, float x, float y, float radius, float directionAngle, float speed, bool hurtsPlayer) {
+		void init(Bullet& bullet, float x, float y, float radius, float directionAngle, float speed, bool hurtsPlayer, Color color) {
 			bullet = create();
 			bullet.x = x;
 			bullet.y = y;
@@ -45,6 +46,7 @@ namespace MoonPatrol {
 			bullet.directionAngle = directionAngle;
 			bullet.speed = speed;
 			bullet.hurtsPlayer = hurtsPlayer;
+			bullet.color = color;
 		}
 	}
 }

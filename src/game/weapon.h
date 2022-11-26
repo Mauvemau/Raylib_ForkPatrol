@@ -1,5 +1,7 @@
 #pragma once
 
+#include "raylib.h"
+
 namespace MoonPatrol {
 	namespace Weapons {
 		struct Weapon {
@@ -7,7 +9,6 @@ namespace MoonPatrol {
 			float firePower;
 			float bulletCaliber;
 			bool hurtsPlayer;
-
 			float lastShot;
 		};
 
@@ -21,7 +22,7 @@ namespace MoonPatrol {
 
 		Weapon createWeaponFromTemplate(Types type);
 
-		void shoot(Weapon& weapon, float x, float y, float direction);
+		void shoot(Weapon& weapon, float x, float y, float direction, Color color);
 
 		void init(Weapon& weapon, float fireRate, float firePower, float bulletCaliber, bool hurtsPlayer);
 	}

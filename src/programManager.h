@@ -6,6 +6,7 @@ namespace MoonPatrol {
 			GAME,
 			MAINMENU,
 			CREDITS,
+			GAMEMODE,
 			GAMEOVER
 		};
 
