@@ -19,6 +19,11 @@ namespace MoonPatrol {
 			return (pointX > recX && pointX < (recX + recWidth) && pointY > recY && pointY < (recY + recHeight));
 		}
 
+		bool bulletWall(Bullets::Bullet bullet) {
+			return (bullet.x - bullet.radius <= 0 || bullet.y - bullet.radius <= 0 ||
+				bullet.x + bullet.radius >= GetScreenWidth() || bullet.y + bullet.radius >= GetScreenHeight());
+		}
+
 		bool playerObstacle(Players::Player player, Obstacles::Obstacle obstacle) {
 			return (rectangleRectangleCollision(player.x, player.y, player.width, player.height, obstacle.x, obstacle.y, obstacle.width, obstacle.height));
 		}
