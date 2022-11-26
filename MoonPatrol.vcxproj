@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="src\collisionManager.cpp" />
     <ClCompile Include="src\game\bullet.cpp" />
+    <ClCompile Include="src\game\enemy.cpp" />
     <ClCompile Include="src\game\game.cpp" />
     <ClCompile Include="src\game\objectManager.cpp" />
     <ClCompile Include="src\game\obstacle.cpp" />
@@ -41,6 +42,7 @@
   <ItemGroup>
     <ClInclude Include="src\collisionManager.h" />
     <ClInclude Include="src\game\bullet.h" />
+    <ClInclude Include="src\game\enemy.h" />
     <ClInclude Include="src\game\game.h" />
     <ClInclude Include="src\game\objectManager.h" />
     <ClInclude Include="src\game\obstacle.h" />

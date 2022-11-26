@@ -20,11 +20,19 @@ namespace MoonPatrol {
 		Bullets::Bullet bullets[maxBullets];
 		int activeBullets;
 
+		const int maxEnemies = 25;
+		Enemies::Enemy enemies[maxEnemies];
+		int activeEnemies;
+
 		// --
 
 		// -- Public
 
 		// Getters
+
+		int getActiveEnemies() {
+			return activeEnemies;
+		}
 
 		// Pool Controls
 		void removeBullet(int id) {
@@ -41,11 +49,29 @@ namespace MoonPatrol {
 			}
 		}
 
+		void removeEnemy(int id) {
+			if (id < activeEnemies) {
+				enemies[id] = enemies[activeEnemies - 1];
+				activeEnemies--;
+			}
+		}
+
+		void addEnemy(float center, float hitRadius, float speed, int direction) {
+			if (activeEnemies < maxEnemies) {
+				Enemies::init(enemies[activeEnemies], center, 1, hitRadius, speed, direction, Weapons::create());
+				activeEnemies++;
+			}
+		}
+
 		// General 
 		void draw() {
 			// Bullets
 			for (int i = 0; i < activeBullets; i++) {
 				Bullets::draw(bullets[i]);
+			}
+			//Enemies
+			for (int i = 0; i < activeEnemies; i++) {
+				Enemies::draw(enemies[i]);
 			}
 		}
 
@@ -57,6 +83,10 @@ namespace MoonPatrol {
 					removeBullet(i);
 				}
 			}
+			// Enemies
+			for (int i = 0; i < activeEnemies; i++) {
+				Enemies::update(enemies[i]);
+			}
 		}
 
 		void init() {
@@ -65,6 +95,12 @@ namespace MoonPatrol {
 				bullets[i] = Bullets::create();
 			}
 			activeBullets = 0;
+
+			// Enemies
+			for (int i = 0; i < maxEnemies; i++) {
+				enemies[i] = Enemies::create();
+			}
+			activeEnemies = 0;
 		}
 	}
 }
