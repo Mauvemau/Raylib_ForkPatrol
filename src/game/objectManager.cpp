@@ -87,6 +87,7 @@ namespace MoonPatrol {
 				for (int j = 0; j < activeEnemies; j++) {
 					if (Collisions::bulletEnemy(bullets[i], enemies[j])) {
 						removeEnemy(j);
+						removeBullet(i);
 						Game::setScore(Game::getScore() + 25);
 					}
 				}

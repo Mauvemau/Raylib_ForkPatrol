@@ -42,9 +42,28 @@ namespace MoonPatrol {
 
         int score;
 
+        int enemySoftCap;
+
+        void handleGameLogic();
         void draw();
 
         // --
+
+        void handleGameLogic() {
+            if (ObjectManager::getActiveEnemies() < enemySoftCap) {
+                int direction = -1;
+                int aux = GetRandomValue(0, 1);
+                if (aux) {
+                    direction = abs(direction);
+                }
+                float altitude;
+                int altitudeMultiplier = GetRandomValue(20, 40);
+                altitude = altitudeMultiplier * .01f;
+                float speed = static_cast<float>(GetRandomValue(100, 200));
+
+                ObjectManager::addEnemy(GetScreenHeight() * altitude, GetScreenHeight() * .045f, speed, direction);
+            }
+        }
 
         void draw()
         {
@@ -123,9 +142,7 @@ namespace MoonPatrol {
 
                 Obstacles::update(obstacle);
 
-                Terrains::update(floor);
-                Terrains::update(backgroundClose);
-                Terrains::update(backgroundFar);
+                handleGameLogic();
 
                 if (Collisions::playerObstacle(playerOne, obstacle)) {
                     Program::setScreen(Program::Screen::GAMEOVER);
@@ -133,6 +150,10 @@ namespace MoonPatrol {
                 if (playerOne.x > (obstacle.x + obstacle.width)) {
                     Obstacles::handleDodgeLogic(obstacle);
                 }
+
+                Terrains::update(floor);
+                Terrains::update(backgroundClose);
+                Terrains::update(backgroundFar);
             }
             else {
                 PauseMenu::update();
@@ -150,6 +171,8 @@ namespace MoonPatrol {
             PauseMenu::init();
 
             score = 0;
+
+            enemySoftCap = 2;
 
             ObjectManager::init();
 
@@ -169,8 +192,6 @@ namespace MoonPatrol {
                 getFloorAltitude(),
                 30, 30,
                 250.0f);
-
-            ObjectManager::addEnemy(GetScreenHeight() * .25f, GetScreenHeight() * .05f, 200.0f, 1);
         }
     }
 }
