@@ -9,6 +9,9 @@ namespace MoonPatrol {
 		void setPaused(bool value);
 		void setScore(int value);
 
+		bool getGameMode();
+		int getPlayerOneLives();
+		int getPlayerTwoLives();
 		int getObstaclesDodged();
 		int getEnemiesKilled();
 		float getBeginTime();

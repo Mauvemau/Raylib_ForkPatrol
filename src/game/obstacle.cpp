@@ -32,6 +32,10 @@ namespace MoonPatrol {
 			return obstacle;
 		}
 
+		void setX(Obstacle& obstacle, float xPos) {
+			obstacle.x = xPos;
+		}
+
 		void drawHeader(Obstacle obstacle, const char* text) {
 			Utils::DrawCenteredText(text,
 				static_cast<int>(obstacle.x + (obstacle.width * .5f)),
@@ -58,7 +62,13 @@ namespace MoonPatrol {
 			if (Game::getObstaclesDodged() == 0 || Game::getEnemiesKilled() > 0 || obstacle.dodged == true) {
 				move(obstacle, -1);
 				if (obstacle.x < (-obstacle.width)) {
-					obstacle.x = static_cast<float>((GetScreenWidth() * 1) + obstacle.width);
+					int aux = GetRandomValue(0, 1);
+					if (aux) {
+						obstacle.x = static_cast<float>((GetScreenWidth() * 1) + obstacle.width);
+					}
+					else {
+						obstacle.x = static_cast<float>((GetScreenWidth() * 2) + obstacle.width);
+					}
 					obstacle.dodged = false;
 				}
 			}

@@ -34,9 +34,18 @@ namespace MoonPatrol {
 			player.verticalVelocity = 0;
 			player.gravity = 0;
 			player.jumpForce = 0;
+			player.lives = 0;
 			player.color = RAYWHITE;
 			InitVehicleWeapons(player.weapons);
 			return player;
+		}
+
+		int getLives(Player player) {
+			return player.lives;
+		}
+
+		void setLives(Player& player, int value) {
+			player.lives = value;
 		}
 
 		void drawHeader(Player player, const char* text) {
@@ -109,7 +118,7 @@ namespace MoonPatrol {
 			player.y += player.verticalVelocity * GetFrameTime();
 		}
 
-		void init(Player& player, float x, float y, float width, float height, float speed, float gravity, float jumpForce, Color color) {
+		void init(Player& player, float x, float y, float width, float height, float speed, float gravity, float jumpForce, int lives, Color color) {
 			player = create();
 			player.x = x;
 			player.y = y;
@@ -119,6 +128,7 @@ namespace MoonPatrol {
 			player.speed = speed;
 			player.gravity = gravity;
 			player.jumpForce = jumpForce;
+			player.lives = lives;
 			player.color = color;
 			player.weapons[0] = Weapons::createWeaponFromTemplate(Weapons::Types::GUN);
 		}

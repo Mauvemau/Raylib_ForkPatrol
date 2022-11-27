@@ -50,6 +50,14 @@ namespace MoonPatrol {
 					static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .325f),
 					static_cast<int>(GetScreenHeight() * .05f), RAYWHITE);
 
+				Utils::DrawCenteredText(TextFormat("%i obstacles dodged!", Game::getObstaclesDodged()),
+					static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .375f),
+					static_cast<int>(GetScreenHeight() * .04f), ORANGE);
+
+				Utils::DrawCenteredText(TextFormat("%i enemies killed!", Game::getEnemiesKilled()),
+					static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .425f),
+					static_cast<int>(GetScreenHeight() * .04f), SKYBLUE);
+
 				Buttons::draw(restartButton);
 				Buttons::draw(returnButton);
 

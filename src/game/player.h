@@ -16,11 +16,16 @@ namespace MoonPatrol {
 			float verticalVelocity;
 			float gravity;
 			float jumpForce;
+			int lives;
 			Color color;
 			Weapons::Weapon weapons[amountWeapons];
 		};
 
 		Player create();
+
+		int getLives(Player player);
+
+		void setLives(Player& player, int value);
 
 		void drawHeader(Player player, const char* text);
 
@@ -30,6 +35,6 @@ namespace MoonPatrol {
 
 		void draw(Player player);
 		void update(Player& player);
-		void init(Player& player, float x, float y, float width, float height, float speed, float gravity, float jumpForce, Color color);
+		void init(Player& player, float x, float y, float width, float height, float speed, float gravity, float jumpForce, int lives, Color color);
 	}
 }

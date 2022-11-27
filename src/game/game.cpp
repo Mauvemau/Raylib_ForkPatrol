@@ -92,13 +92,22 @@ namespace MoonPatrol {
 
                 ObjectManager::draw();
 
-                Players::draw(playerOne);
-                if (multiplayer)
-                    Players::draw(playerTwo);
+                if (Players::getLives(playerOne) >= 0) {
+                    Players::draw(playerOne);
+                }
+                if (multiplayer) {
+                    if (Players::getLives(playerTwo) >= 0) {
+                        Players::draw(playerTwo);
+                    }
+                }
 
                 if (multiplayer) {
-                    Players::drawHeader(playerOne, "P1");
-                    Players::drawHeader(playerTwo, "P2");
+                    if (Players::getLives(playerOne) >= 0) {
+                        Players::drawHeader(playerOne, "P1");
+                    }
+                    if (Players::getLives(playerTwo) >= 0) {
+                        Players::drawHeader(playerTwo, "P2");
+                    }
                 }
 
                 if (obstaclesDodged == 0 && getTime() >= beginGameTime) {
@@ -146,6 +155,18 @@ namespace MoonPatrol {
             score = value;
         }
 
+        bool getGameMode() {
+            return multiplayer;
+        }
+
+        int getPlayerOneLives() {
+            return Players::getLives(playerOne);
+        }
+
+        int getPlayerTwoLives() {
+            return Players::getLives(playerTwo);
+        }
+
         int getObstaclesDodged() {
             return obstaclesDodged;
         }
@@ -184,13 +205,17 @@ namespace MoonPatrol {
             Input::updateGeneral();
 
             if (!paused) {
-                Input::updatePlayerOne(playerOne);
-                if(multiplayer)
-                    Input::updatePlayerTwo(playerTwo);
+                if (Players::getLives(playerOne) >= 0) {
+                    Input::updatePlayerOne(playerOne);
+                    Players::update(playerOne);
+                }
 
-                Players::update(playerOne);
-                if(multiplayer)
-                    Players::update(playerTwo);
+                if (multiplayer) {
+                    if (Players::getLives(playerTwo) >= 0) {
+                        Input::updatePlayerTwo(playerTwo);
+                        Players::update(playerTwo);
+                    }
+                }
 
                 ObjectManager::update();
 
@@ -199,18 +224,26 @@ namespace MoonPatrol {
                     handleGameLogic();
                 }
 
-                if (Collisions::playerObstacle(playerOne, obstacle)) {
-                    Program::setScreen(Program::Screen::GAMEOVER);
-                }
-                if (playerOne.x > (obstacle.x + obstacle.width)) {
-                    Obstacles::handleDodgeLogic(obstacle);
+                if (Players::getLives(playerOne) >= 0) {
+                    if (Collisions::playerObstacle(playerOne, obstacle)) {
+                        Obstacles::setX(obstacle, static_cast<float>((GetScreenWidth() * 2) + obstacle.width));
+                        Players::setLives(playerOne, Players::getLives(playerOne) - 1);
+                        Assets::PlayAudio(Assets::Audio::HURT, 1.0f);
+                    }
+                    if (playerOne.x > (obstacle.x + obstacle.width)) {
+                        Obstacles::handleDodgeLogic(obstacle);
+                    }
                 }
                 if (multiplayer) {
-                    if (Collisions::playerObstacle(playerTwo, obstacle)) {
-                        Program::setScreen(Program::Screen::GAMEOVER);
-                    }
-                    if (playerTwo.x > (obstacle.x + obstacle.width)) {
-                        Obstacles::handleDodgeLogic(obstacle);
+                    if (Players::getLives(playerTwo) >= 0) {
+                        if (Collisions::playerObstacle(playerTwo, obstacle)) {
+                            Obstacles::setX(obstacle, static_cast<float>((GetScreenWidth() * 2) + obstacle.width));
+                            Players::setLives(playerTwo, Players::getLives(playerTwo) - 1);
+                            Assets::PlayAudio(Assets::Audio::HURT, 1.0f);
+                        }
+                        if (playerTwo.x > (obstacle.x + obstacle.width)) {
+                            Obstacles::handleDodgeLogic(obstacle);
+                        }
                     }
                 }
 
@@ -220,6 +253,10 @@ namespace MoonPatrol {
             }
             else {
                 PauseMenu::update();
+            }
+
+            if (multiplayer && Players::getLives(playerOne) < 0 && Players::getLives(playerTwo) < 0 || !multiplayer && Players::getLives(playerOne) < 0) {
+                Program::setScreen(Program::Screen::GAMEOVER);
             }
 
             draw();
@@ -254,6 +291,7 @@ namespace MoonPatrol {
                 120, 50,
                 300.0f, 
                 200.0f, 200.0f,
+                3,
                 RED);
 
             Players::init(playerTwo,
@@ -262,6 +300,7 @@ namespace MoonPatrol {
                 120, 50,
                 300.0f,
                 200.0f, 200.0f,
+                3,
                 BLUE);
 
             Obstacles::init(obstacle,
