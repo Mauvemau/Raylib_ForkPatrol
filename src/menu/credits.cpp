@@ -15,6 +15,9 @@ namespace MoonPatrol {
 
 		Buttons::Button raylibWebsite;
 
+		Buttons::Button spriteJeepButton;
+		Buttons::Button spriteDroneButton;
+
 		Buttons::Button buttonReturn;
 
 		void initButtons();
@@ -62,11 +65,26 @@ namespace MoonPatrol {
 
 			Buttons::init(raylibWebsite,
 				static_cast<float>(GetScreenWidth() * .5f),
-				static_cast<float>(GetScreenHeight() * .75f),
+				static_cast<float>(GetScreenHeight() * .7f),
 				160,
 				40,
 				"Raylib");
 			Buttons::center(raylibWebsite);
+
+			Buttons::init(spriteJeepButton,
+				static_cast<float>(GetScreenWidth() * .5f),
+				static_cast<float>(GetScreenHeight() * .82f),
+				220,
+				40,
+				"Jeep Sprite");
+			Buttons::center(spriteJeepButton);
+			Buttons::init(spriteDroneButton,
+				static_cast<float>(GetScreenWidth() * .5f),
+				static_cast<float>(GetScreenHeight() * .82f + 50),
+				220,
+				40,
+				"Drone Sprite");
+			Buttons::center(spriteDroneButton);
 
 		}
 
@@ -88,9 +106,13 @@ namespace MoonPatrol {
 				Buttons::draw(raylibWebsite);
 				Buttons::drawHeader("This game was made using Raylib", raylibWebsite);
 
+				Buttons::draw(spriteJeepButton);
+				Buttons::drawHeader("Sprites by knik1985", spriteJeepButton);
+				Buttons::draw(spriteDroneButton);
+
 				Utils::DrawCenteredText("Credits", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .10f), 60, ORANGE);
 				Utils::DrawCenteredText("Developers:", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .2f), 35, SKYBLUE);
-				Utils::DrawCenteredText("Resources:", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .65f), 35, RED);
+				Utils::DrawCenteredText("Resources:", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .6f), 35, RED);
 
 				DrawCircle(GetMouseX(), GetMouseY(), 5, RED);
 
@@ -106,6 +128,8 @@ namespace MoonPatrol {
 			if (Buttons::update(salazarGithub, GetMousePosition())) OpenURL("https://github.com/Mauvemau");
 			if (Buttons::update(salazarItch, GetMousePosition())) OpenURL("https://mauvemau.itch.io");
 			if (Buttons::update(raylibWebsite, GetMousePosition())) OpenURL("https://www.raylib.com");
+			if (Buttons::update(spriteJeepButton, GetMousePosition())) OpenURL("https://opengameart.org/content/pixel-military-car-pack");
+			if (Buttons::update(spriteDroneButton, GetMousePosition())) OpenURL("https://opengameart.org/content/pixel-drone");
 			if (IsKeyPressed(KEY_ESCAPE)) Program::setScreen(Program::Screen::MAINMENU);
 
 			draw();
