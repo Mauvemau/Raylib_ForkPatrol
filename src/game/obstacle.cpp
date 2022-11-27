@@ -65,7 +65,7 @@ namespace MoonPatrol {
 		void init(Obstacle& obstacle, float y, float width, float height, float speed) {
 			obstacle = create();
 			obstacle.x = GetScreenWidth() + width;
-			obstacle.y = y - height;
+			obstacle.y = y;
 			obstacle.width = width;
 			obstacle.height = height;
 			obstacle.speed = speed;

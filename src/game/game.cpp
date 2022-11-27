@@ -85,7 +85,7 @@ namespace MoonPatrol {
                 Terrains::draw(backgroundFar);
                 Terrains::draw(backgroundClose);
 
-                DrawRectangle(0, static_cast<int>(getFloorAltitude()), GetScreenWidth(), 20, GRAY);
+                //DrawRectangle(0, static_cast<int>(getFloorAltitude()), GetScreenWidth(), 20, GRAY);
 
                 Obstacles::draw(obstacle);
 
@@ -158,6 +158,10 @@ namespace MoonPatrol {
 
         bool getIsPaused() {
             return paused;
+        }
+
+        float getFloorAltitude(float xPos) {
+            return Terrains::getElevation(floor, xPos);
         }
 
         float getFloorAltitude() {
@@ -245,7 +249,7 @@ namespace MoonPatrol {
             Players::init(playerOne,
                 GetScreenWidth() * .22f, 
                 getFloorAltitude(),
-                50, 50,
+                100, 50,
                 300.0f, 
                 200.0f, 200.0f,
                 RED);
@@ -253,14 +257,14 @@ namespace MoonPatrol {
             Players::init(playerTwo,
                 GetScreenWidth() * .28f,
                 getFloorAltitude(),
-                50, 50,
+                100, 50,
                 300.0f,
                 200.0f, 200.0f,
                 BLUE);
 
             Obstacles::init(obstacle,
-                getFloorAltitude(),
-                30, 30,
+                getFloorAltitude() - 30,
+                30, 100,
                 250.0f);
         }
     }

@@ -13,6 +13,7 @@ namespace MoonPatrol {
 		int getEnemiesKilled();
 		float getBeginTime();
 		bool getIsPaused();
+		float getFloorAltitude(float xPos);
 		float getFloorAltitude();
 		float getTime();
 		int getScore();
