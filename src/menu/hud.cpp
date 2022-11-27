@@ -28,6 +28,14 @@ namespace MoonPatrol {
 				static_cast<int>(GetScreenHeight() * .05f),
 				RAYWHITE);
 
+			if (Game::getTime() < 10.0f) {
+				Utils::DrawCenteredText("Press [ESC] to pause the game.",
+					static_cast<int>((GetScreenWidth() * .5)),
+					static_cast<int>((GetScreenHeight() * .95)),
+					static_cast<int>(GetScreenHeight() * .03f),
+					{ 40, 30, 15, 255 });
+			}
+
 			if (Game::getTime() < Game::getBeginTime()) {
 				Utils::DrawCenteredText("GET READY", 
 					static_cast<int>(GetScreenWidth() * .5f), 

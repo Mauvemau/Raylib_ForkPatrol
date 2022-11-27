@@ -72,6 +72,9 @@ namespace MoonPatrol {
 			//Enemies
 			for (int i = 0; i < activeEnemies; i++) {
 				Enemies::draw(enemies[i]);
+				if (Game::getEnemiesKilled() == 0) {
+					Enemies::drawHeader(enemies[i], "SHOOT AT THIS");
+				}
 			}
 		}
 
@@ -87,6 +90,7 @@ namespace MoonPatrol {
 						removeEnemy(j);
 						removeBullet(i);
 						Game::setScore(Game::getScore() + 25);
+						Game::setEnemiesKilled(Game::getEnemiesKilled() + 1);
 					}
 				}
 			}

@@ -29,6 +29,14 @@ namespace MoonPatrol {
 			return enemy;
 		}
 
+		void drawHeader(Enemy enemy, const char* text) {
+			Utils::DrawCenteredText(text,
+				static_cast<int>(enemy.x),
+				static_cast<int>(enemy.y - (enemy.hitRadius * 2)),
+				static_cast<int>(GetScreenHeight() * .03f),
+				SKYBLUE);
+		}
+
 		void draw(Enemy enemy) {
 			DrawCircle(static_cast<int>(enemy.x), static_cast<int>(enemy.y), enemy.hitRadius, SKYBLUE);
 		}

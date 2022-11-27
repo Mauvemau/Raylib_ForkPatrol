@@ -106,6 +106,7 @@ namespace MoonPatrol {
 			if (Buttons::update(salazarGithub, GetMousePosition())) OpenURL("https://github.com/Mauvemau");
 			if (Buttons::update(salazarItch, GetMousePosition())) OpenURL("https://mauvemau.itch.io");
 			if (Buttons::update(raylibWebsite, GetMousePosition())) OpenURL("https://www.raylib.com");
+			if (IsKeyPressed(KEY_ESCAPE)) Program::setScreen(Program::Screen::MAINMENU);
 
 			draw();
 		}

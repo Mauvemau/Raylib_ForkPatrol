@@ -54,6 +54,9 @@ namespace MoonPatrol {
 				Buttons::draw(buttonQuit);
 
 				Utils::DrawCenteredText("Fork Patrol", static_cast<int>(GetScreenWidth() * .5f), static_cast<int>(GetScreenHeight() * .25f), 120, SKYBLUE);
+				Utils::DrawCenteredText("Use the Cursor and [Left Click] to navigate the menus.", 
+					static_cast<int>(GetScreenWidth() * .5f), 
+					static_cast<int>(GetScreenHeight() * .4f), 25, RAYWHITE);
 
 				const char* versionText = TextFormat("v%s", Program::getVersion());
 				int versionFontSize = static_cast<int>(GetScreenHeight() * .05f);

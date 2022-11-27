@@ -20,7 +20,7 @@ namespace MoonPatrol {
 
 		bool programShouldClose;
 
-		const char* programVersion = "0.4";
+		const char* programVersion = "1.0";
 
 		static void initScreen(Screen screen);
 		static void uninit();
@@ -81,7 +81,8 @@ namespace MoonPatrol {
 
 		static void init() {
 			programShouldClose = false;
-			InitWindow(static_cast<int>(screenWidth), static_cast<int>(screenHeight), TextFormat("MoonPatrol - Altamirano - v%s", programVersion));
+			InitWindow(static_cast<int>(screenWidth), static_cast<int>(screenHeight), TextFormat("MoonPatrol - Altamirano/Salazar - v%s", programVersion));
+			//SetTargetFPS(15);
 			HideCursor();
 			SetExitKey(KEY_NULL);
 			setScreen(Screen::MAINMENU);

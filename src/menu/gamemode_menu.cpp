@@ -90,6 +90,8 @@ namespace MoonPatrol {
 				Program::setScreen(Program::Screen::GAME);
 			}
 			if (Buttons::update(returnButton, GetMousePosition())) Program::setScreen(Program::Screen::MAINMENU);
+			if (IsKeyPressed(KEY_ESCAPE)) Program::setScreen(Program::Screen::MAINMENU);
+
 
 			draw();
 		}

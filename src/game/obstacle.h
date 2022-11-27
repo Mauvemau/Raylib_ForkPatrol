@@ -13,6 +13,7 @@ namespace MoonPatrol {
 
 		Obstacle create();
 
+		void drawHeader(Obstacle obstacle, const char* text);
 		void handleDodgeLogic(Obstacle& obstacle);
 
 		void draw(Obstacle obstacle);

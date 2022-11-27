@@ -17,6 +17,8 @@ namespace MoonPatrol {
 
 		Enemy create();
 
+		void drawHeader(Enemy enemy, const char* text);
+
 		void draw(Enemy enemy);
 		void update(Enemy& enemy);
 		void init(Enemy& enemy, float yCenter, int lives, float hitRadius, float speed, int direction, Weapons::Weapon weapon);

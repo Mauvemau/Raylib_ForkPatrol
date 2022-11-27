@@ -48,24 +48,29 @@ namespace MoonPatrol {
 
         float beginGameTime; // El juego comienza despues de __ segundos, dejando que los jugadores que prueben los controles.
 
+        int obstaclesDodged;
+        int enemiesKilled;
+
         void handleGameLogic();
         void draw();
 
         // --
 
         void handleGameLogic() {
-            if (ObjectManager::getActiveEnemies() < enemySoftCap) {
-                int direction = -1;
-                int aux = GetRandomValue(0, 1);
-                if (aux) {
-                    direction = abs(direction);
-                }
-                float altitude;
-                int altitudeMultiplier = GetRandomValue(20, 40);
-                altitude = altitudeMultiplier * .01f;
-                float speed = static_cast<float>(GetRandomValue(100, 200));
+            if (obstaclesDodged > 0) {
+                if (ObjectManager::getActiveEnemies() < enemySoftCap) {
+                    int direction = -1;
+                    int aux = GetRandomValue(0, 1);
+                    if (aux) {
+                        direction = abs(direction);
+                    }
+                    float altitude;
+                    int altitudeMultiplier = GetRandomValue(20, 40);
+                    altitude = altitudeMultiplier * .01f;
+                    float speed = static_cast<float>(GetRandomValue(100, 200));
 
-                ObjectManager::addEnemy(GetScreenHeight() * altitude, GetScreenHeight() * .045f, speed, direction);
+                    ObjectManager::addEnemy(GetScreenHeight() * altitude, GetScreenHeight() * .045f, speed, direction);
+                }
             }
         }
 
@@ -93,6 +98,10 @@ namespace MoonPatrol {
                     Players::drawHeader(playerTwo, "P2");
                 }
 
+                if (obstaclesDodged == 0 && getTime() >= beginGameTime) {
+                    Obstacles::drawHeader(obstacle, "JUMP OVER THIS");
+                }
+
                 ObjectManager::draw();
 
                 Terrains::draw(floor);
@@ -108,6 +117,14 @@ namespace MoonPatrol {
         }
 
         // Public
+
+        void setObstaclesDodged(int value) {
+            obstaclesDodged = value;
+        }
+
+        void setEnemiesKilled(int value) {
+            enemiesKilled = value;
+        }
 
         void setGameMode(bool value) {
             multiplayer = value;
@@ -125,6 +142,14 @@ namespace MoonPatrol {
 
         void setScore(int value) {
             score = value;
+        }
+
+        int getObstaclesDodged() {
+            return obstaclesDodged;
+        }
+
+        int getEnemiesKilled() {
+            return enemiesKilled;
         }
 
         float getBeginTime() {
@@ -204,9 +229,12 @@ namespace MoonPatrol {
 
             score = 0;
 
-            enemySoftCap = 2;
+            enemySoftCap = 1;
 
             beginGameTime = 3.0f;
+
+            obstaclesDodged = 0;
+            enemiesKilled = 0;
 
             ObjectManager::init();
 
