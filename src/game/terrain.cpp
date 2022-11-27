@@ -46,6 +46,10 @@ namespace MoonPatrol {
 			return terrain;
 		}
 
+		void setSpeed(Terrain& terrain, float value) {
+			terrain.speed = value;
+		}
+
 		float getElevation(Terrain terrain, float xPos) {
 			Vector2 leftNode = { 0, 0 };
 			Vector2 rightNode = { 0, 0 };

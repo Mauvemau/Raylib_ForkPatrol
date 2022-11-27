@@ -32,6 +32,10 @@ namespace MoonPatrol {
 			return obstacle;
 		}
 
+		void setSpeed(Obstacle& obstacle, float value) {
+			obstacle.speed = value;
+		}
+
 		void setX(Obstacle& obstacle, float xPos) {
 			obstacle.x = xPos;
 		}
@@ -55,7 +59,7 @@ namespace MoonPatrol {
 
 		void draw(Obstacle obstacle) {
 			DrawRectangle(static_cast<int>(obstacle.x), static_cast<int>(obstacle.y),
-				static_cast<int>(obstacle.width), static_cast<int>(obstacle.height), GREEN);
+				static_cast<int>(obstacle.width), static_cast<int>(obstacle.height), { 40, 30, 15, 255 });
 		}
 
 		void update(Obstacle& obstacle) {

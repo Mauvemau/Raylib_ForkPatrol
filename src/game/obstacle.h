@@ -13,6 +13,7 @@ namespace MoonPatrol {
 
 		Obstacle create();
 
+		void setSpeed(Obstacle& obstacle, float value);
 		void setX(Obstacle& obstacle, float xPos);
 
 		void drawHeader(Obstacle obstacle, const char* text);

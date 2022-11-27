@@ -22,6 +22,8 @@ namespace MoonPatrol {
 
 		Terrain create();
 
+		void setSpeed(Terrain& terrain, float value);
+
 		float getElevation(Terrain terrain, float xPos);
 
 		void draw(Terrain terrain);

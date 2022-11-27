@@ -23,7 +23,7 @@ using namespace std;
 
 namespace MoonPatrol {
     namespace Game {
-        // Private
+        // -- Private
 
         // Objects
         Players::Player playerOne;
@@ -43,14 +43,18 @@ namespace MoonPatrol {
 
         int score;
 
-        int enemySoftCap;
-
         bool multiplayer;
+
+        float gameSpeed;
 
         float beginGameTime; // El juego comienza despues de __ segundos, dejando que los jugadores que prueben los controles.
 
         int obstaclesDodged;
         int enemiesKilled;
+
+        float enemySpawnTimer; // Spawnear enemigos cada tantos segundos.
+        int enemySoftCap; // La cantidad de enemigos simultaneos que puede haber actualmente.
+        float spawnNext; // El timestamp de cuando se debe spawnear el proximo enemigo.
 
         void handleGameLogic();
         void draw();
@@ -60,17 +64,31 @@ namespace MoonPatrol {
         void handleGameLogic() {
             if (obstaclesDodged > 0) {
                 if (ObjectManager::getActiveEnemies() < enemySoftCap) {
-                    int direction = -1;
-                    int aux = GetRandomValue(0, 1);
-                    if (aux) {
-                        direction = abs(direction);
-                    }
-                    float altitude;
-                    int altitudeMultiplier = GetRandomValue(20, 40);
-                    altitude = altitudeMultiplier * .01f;
-                    float speed = static_cast<float>(GetRandomValue(100, 200));
+                    if (spawnNext < getTime()) {
+                        int direction = -1;
+                        int aux = GetRandomValue(0, 1);
+                        if (aux) {
+                            direction = abs(direction);
+                        }
+                        float altitude;
+                        int altitudeMultiplier = GetRandomValue(20, 40);
+                        altitude = altitudeMultiplier * .01f;
+                        float speed = static_cast<float>(GetRandomValue(100, 200));
 
-                    ObjectManager::addEnemy(GetScreenHeight() * altitude, GetScreenHeight() * .045f, speed, direction);
+                        ObjectManager::addEnemy(GetScreenHeight() * altitude, GetScreenHeight() * .045f, speed, direction);
+                        spawnNext = getTime() + enemySpawnTimer;
+
+                        if (enemiesKilled > 5) {
+                            enemySoftCap++;
+                        }
+                        if (enemiesKilled > 20) {
+                            enemySpawnTimer -= 0.05f;
+                            if (enemySpawnTimer < 1.5f) {
+                                enemySpawnTimer = 0.5f;
+                            }
+                            gameSpeed += 5.0f;
+                        }
+                    }
                 }
             }
         }
@@ -126,7 +144,13 @@ namespace MoonPatrol {
             EndDrawing();
         }
 
-        // Public
+        // -- Public
+
+        // Setters
+
+        void setSpeed(float value) {
+            gameSpeed = value;
+        }
 
         void setObstaclesDodged(int value) {
             obstaclesDodged = value;
@@ -153,6 +177,12 @@ namespace MoonPatrol {
 
         void setScore(int value) {
             score = value;
+        }
+
+        // Getters
+
+        float getSpeed() {
+            return gameSpeed;
         }
 
         bool getGameMode() {
@@ -221,6 +251,7 @@ namespace MoonPatrol {
 
                 if (getTime() >= beginGameTime) {
                     Obstacles::update(obstacle);
+                    Obstacles::setSpeed(obstacle, gameSpeed);
                     handleGameLogic();
                 }
 
@@ -248,8 +279,11 @@ namespace MoonPatrol {
                 }
 
                 Terrains::update(floor);
+                Terrains::setSpeed(floor, gameSpeed);
                 Terrains::update(backgroundClose);
+                Terrains::setSpeed(backgroundClose, gameSpeed * .4f);
                 Terrains::update(backgroundFar);
+                Terrains::setSpeed(backgroundFar, gameSpeed * .2f);
             }
             else {
                 PauseMenu::update();
@@ -272,18 +306,22 @@ namespace MoonPatrol {
 
             score = 0;
 
-            enemySoftCap = 1;
+            gameSpeed = 250.0f;
 
             beginGameTime = 3.0f;
 
             obstaclesDodged = 0;
             enemiesKilled = 0;
 
+            enemySpawnTimer = 3.0f;
+            enemySoftCap = 1;
+            spawnNext = 0;
+
             ObjectManager::init();
 
-            Terrains::init(floor, GetScreenWidth() * .1f, GetScreenHeight() * .875f, GetScreenHeight() * .85f, 250.0f, { 230, 180, 80, 255 });
-            Terrains::init(backgroundClose, GetScreenWidth() * .2f, GetScreenHeight() * .7f, GetScreenHeight() * .5f, 100.0f, { 145, 120, 50, 255 });
-            Terrains::init(backgroundFar, GetScreenWidth() * .3f, GetScreenHeight() * .7f, GetScreenHeight() * .4f, 50.0f, { 40, 30, 15, 255 });
+            Terrains::init(floor, GetScreenWidth() * .1f, GetScreenHeight() * .875f, GetScreenHeight() * .85f, gameSpeed, { 230, 180, 80, 255 });
+            Terrains::init(backgroundClose, GetScreenWidth() * .2f, GetScreenHeight() * .7f, GetScreenHeight() * .5f, gameSpeed * .4f, { 145, 120, 50, 255 });
+            Terrains::init(backgroundFar, GetScreenWidth() * .3f, GetScreenHeight() * .7f, GetScreenHeight() * .4f, gameSpeed * .2f, { 40, 30, 15, 255 });
 
             Players::init(playerOne,
                 GetScreenWidth() * .22f, 
@@ -304,9 +342,9 @@ namespace MoonPatrol {
                 BLUE);
 
             Obstacles::init(obstacle,
-                getFloorAltitude() - 30,
+                getFloorAltitude() - 40,
                 30, 100,
-                250.0f);
+                gameSpeed);
         }
     }
 }
