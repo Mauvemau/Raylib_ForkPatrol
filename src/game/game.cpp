@@ -81,7 +81,7 @@ namespace MoonPatrol {
                         if (enemiesKilled > 5) {
                             enemySoftCap++;
                         }
-                        if (enemiesKilled > 20) {
+                        if (enemiesKilled > 15) {
                             enemySpawnTimer -= 0.05f;
                             if (enemySpawnTimer < 1.0f) {
                                 enemySpawnTimer = 1.0f;
