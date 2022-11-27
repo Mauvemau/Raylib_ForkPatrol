@@ -8,6 +8,7 @@
 #include "bullet.h"
 // Managers
 #include "collision_manager.h"
+#include "asset_manager.h"
 
 using namespace std;
 
@@ -91,6 +92,7 @@ namespace MoonPatrol {
 						removeBullet(i);
 						Game::setScore(Game::getScore() + 25);
 						Game::setEnemiesKilled(Game::getEnemiesKilled() + 1);
+						Assets::PlayAudio(Assets::Audio::EXPLOSION, .5f);
 					}
 				}
 			}

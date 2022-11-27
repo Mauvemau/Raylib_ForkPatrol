@@ -4,6 +4,7 @@
 
 #include "game.h"
 #include "object_manager.h"
+#include "asset_manager.h"
 
 using namespace std;
 
@@ -56,6 +57,7 @@ namespace MoonPatrol {
 				if (weapon.fireRate < (Game::getTime() - weapon.lastShot)) {
 					weapon.lastShot = Game::getTime();
 					ObjectManager::addBullet(x, y, weapon.bulletCaliber, direction, weapon.firePower, weapon.hurtsPlayer, color);
+					Assets::PlayAudio(Assets::Audio::SHOOT, .5f);
 				}
 			}
 		}

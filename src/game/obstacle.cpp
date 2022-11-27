@@ -3,6 +3,7 @@
 #include "raylib.h"
 
 #include "game.h"
+#include "asset_manager.h"
 #include "utils.h"
 
 namespace MoonPatrol {
@@ -42,9 +43,8 @@ namespace MoonPatrol {
 		void handleDodgeLogic(Obstacle& obstacle) {
 			if (!obstacle.dodged) {
 				obstacle.dodged = true;
-				if (Game::getObstaclesDodged() == 0 || Game::getEnemiesKilled() > 0) {
-					Game::setScore(Game::getScore() + 10);
-				}
+				Game::setScore(Game::getScore() + 10);
+				Assets::PlayAudio(Assets::Audio::SCORE, .5f);
 				Game::setObstaclesDodged(Game::getObstaclesDodged() + 1);
 			}
 		}
@@ -55,10 +55,12 @@ namespace MoonPatrol {
 		}
 
 		void update(Obstacle& obstacle) {
-			move(obstacle, -1);
-			if (obstacle.x < (-obstacle.width)) {
-				obstacle.x = static_cast<float>((GetScreenWidth() * 1) + obstacle.width);
-				obstacle.dodged = false;
+			if (Game::getObstaclesDodged() == 0 || Game::getEnemiesKilled() > 0 || obstacle.dodged == true) {
+				move(obstacle, -1);
+				if (obstacle.x < (-obstacle.width)) {
+					obstacle.x = static_cast<float>((GetScreenWidth() * 1) + obstacle.width);
+					obstacle.dodged = false;
+				}
 			}
 		}
 

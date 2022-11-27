@@ -9,6 +9,7 @@ namespace MoonPatrol {
 			EXPLOSION,
 			HURT,
 			PAUSE,
+			SCORE,
 			COUNT
 		};
 
@@ -16,6 +17,7 @@ namespace MoonPatrol {
 			JEEP_BODY,
 			JEEP_WHEEL,
 			DRONE,
+			BULLET_TRAIL,
 			COUNT
 		};
 

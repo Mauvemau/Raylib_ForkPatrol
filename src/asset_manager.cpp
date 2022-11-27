@@ -47,6 +47,9 @@ namespace MoonPatrol {
 				case Audio::PAUSE:
 					LoadAudio("res/sounds/pause.wav", i);
 					break;
+				case Audio::SCORE:
+					LoadAudio("res/sounds/score.wav", i);
+					break;
 				default:
 					cout << "[!] Invalid Audio: AssetLoader - LoadAudios\n";
 					break;
@@ -75,6 +78,9 @@ namespace MoonPatrol {
 					break;
 				case Sprite::DRONE:
 					LoadSprite("res/sprites/drone.png", i);
+					break;
+				case Sprite::BULLET_TRAIL:
+					LoadSprite("res/sprites/bullet_trail.png", i);
 					break;
 				default:
 					cout << "[!] Invalid Sprite: AssetLoader - LoadSprites\n";
