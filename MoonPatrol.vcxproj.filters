@@ -79,6 +79,9 @@
     <ClCompile Include="src\menu\gamemode_menu.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="src\asset_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game\game.h">
@@ -137,6 +140,9 @@
     </ClInclude>
     <ClInclude Include="src\menu\gamemode_menu.h">
       <Filter>Source Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\asset_manager.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

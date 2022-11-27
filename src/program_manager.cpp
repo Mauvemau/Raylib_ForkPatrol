@@ -8,6 +8,8 @@
 #include "menu/main_menu.h"
 #include "menu/credits.h"
 #include "game/game.h"
+// Managers
+#include "asset_manager.h"
 
 namespace MoonPatrol {
 	namespace Program {
@@ -52,6 +54,7 @@ namespace MoonPatrol {
 		}
 
 		static void uninit() {
+			Assets::Unload();
 			CloseWindow();
 		}
 
@@ -86,6 +89,7 @@ namespace MoonPatrol {
 			HideCursor();
 			SetExitKey(KEY_NULL);
 			setScreen(Screen::MAINMENU);
+			Assets::Load();
 		}
 
 		// Public

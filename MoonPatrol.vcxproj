@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\asset_manager.cpp" />
     <ClCompile Include="src\collision_manager.cpp" />
     <ClCompile Include="src\game\bullet.cpp" />
     <ClCompile Include="src\game\enemy.cpp" />
@@ -41,6 +42,7 @@
     <ClCompile Include="src\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\asset_manager.h" />
     <ClInclude Include="src\collision_manager.h" />
     <ClInclude Include="src\game\bullet.h" />
     <ClInclude Include="src\game\enemy.h" />

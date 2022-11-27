@@ -14,6 +14,7 @@
 #include "collision_manager.h"
 #include "program_manager.h"
 #include "object_manager.h"
+#include "asset_manager.h"
 // Layout Menus
 #include "menu/pause_menu.h"
 #include "menu/hud.h"
@@ -134,6 +135,7 @@ namespace MoonPatrol {
             paused = value;
             if (paused) {
                 pauseStartTime = chrono::steady_clock::now();
+                Assets::PlayAudio(Assets::Audio::PAUSE, .5f);
             }
             else {
                 startTime += (chrono::steady_clock::now() - pauseStartTime);
