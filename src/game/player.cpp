@@ -4,6 +4,7 @@
 
 #include "game.h"
 #include "collision_manager.h"
+#include "asset_manager.h"
 #include "utils.h"
 
 using namespace std;
@@ -73,23 +74,23 @@ namespace MoonPatrol {
 
 		void draw(Player player) {
 
-			float bodyY = Game::getFloorAltitude(player.x + (player.width * .5f)) - (player.height * 1.15f);
+			float bodyY = Game::getFloorAltitude(player.x + (player.width * .5f)) - (player.height * 1.2f);
 			if ((player.y + player.height) < Game::getFloorAltitude()) bodyY = player.y;
 
-			float maxSeparation = player.height * .25f;
+			float maxSeparation = player.height * .2f;
 
-			float wheelRadius = player.height * .2f;
-			float frontWheelX = player.x + (player.width * .8f);
+			float wheelRadius = player.height * .25f;
+			float frontWheelX = player.x + (player.width * .88f);
 			float frontWheelY = Game::getFloorAltitude(frontWheelX) - wheelRadius;
 			if (frontWheelY - (bodyY + player.height) > maxSeparation) frontWheelY = (bodyY + player.height) + maxSeparation;
 			float backWheelX = player.x + (player.width * .2f);
 			float backWheelY = Game::getFloorAltitude(backWheelX) - wheelRadius;
 			if (backWheelY - (bodyY + player.height) > maxSeparation) backWheelY = (bodyY + player.height) + maxSeparation;
 
-			DrawRectangle(static_cast<int>(player.x), static_cast<int>(bodyY),
-				static_cast<int>(player.width), static_cast<int>(player.height), player.color);
-			DrawCircle(static_cast<int>(frontWheelX), static_cast<int>(frontWheelY), wheelRadius, DARKGRAY);
-			DrawCircle(static_cast<int>(backWheelX), static_cast<int>(backWheelY), wheelRadius, DARKGRAY);
+			Assets::DrawSprite(Assets::Sprite::JEEP_BODY_SILHOUETTE, { player.x - 3, bodyY - 3 }, { player.width + 6, player.height + 6 }, { 0, 0 }, 0, player.color);
+			Assets::DrawSprite(Assets::Sprite::JEEP_BODY, { player.x, bodyY }, { player.width, player.height }, { 0, 0 }, 0, WHITE);
+			Assets::DrawSprite(Assets::Sprite::JEEP_WHEEL, { frontWheelX, frontWheelY }, { wheelRadius * 2, wheelRadius * 2 }, { wheelRadius, wheelRadius }, 0, WHITE);
+			Assets::DrawSprite(Assets::Sprite::JEEP_WHEEL, { backWheelX, backWheelY }, { wheelRadius * 2, wheelRadius * 2 }, { wheelRadius, wheelRadius }, 0, WHITE);
 
 #ifdef _DEBUG
 			DrawRectangle(static_cast<int>(player.x), static_cast<int>(player.y),

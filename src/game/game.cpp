@@ -90,8 +90,10 @@ namespace MoonPatrol {
 
                 Obstacles::draw(obstacle);
 
+                ObjectManager::draw();
+
                 Players::draw(playerOne);
-                if(multiplayer)
+                if (multiplayer)
                     Players::draw(playerTwo);
 
                 if (multiplayer) {
@@ -102,8 +104,6 @@ namespace MoonPatrol {
                 if (obstaclesDodged == 0 && getTime() >= beginGameTime) {
                     Obstacles::drawHeader(obstacle, "JUMP OVER THIS");
                 }
-
-                ObjectManager::draw();
 
                 Terrains::draw(floor);
 
@@ -251,7 +251,7 @@ namespace MoonPatrol {
             Players::init(playerOne,
                 GetScreenWidth() * .22f, 
                 getFloorAltitude(),
-                100, 50,
+                120, 50,
                 300.0f, 
                 200.0f, 200.0f,
                 RED);
@@ -259,7 +259,7 @@ namespace MoonPatrol {
             Players::init(playerTwo,
                 GetScreenWidth() * .28f,
                 getFloorAltitude(),
-                100, 50,
+                120, 50,
                 300.0f,
                 200.0f, 200.0f,
                 BLUE);

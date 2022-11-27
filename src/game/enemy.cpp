@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "collision_manager.h"
+#include "asset_manager.h"
 #include "utils.h"
 
 namespace MoonPatrol {
@@ -34,11 +35,14 @@ namespace MoonPatrol {
 				static_cast<int>(enemy.x),
 				static_cast<int>(enemy.y - (enemy.hitRadius * 2)),
 				static_cast<int>(GetScreenHeight() * .03f),
-				SKYBLUE);
+				GREEN);
 		}
 
 		void draw(Enemy enemy) {
-			DrawCircle(static_cast<int>(enemy.x), static_cast<int>(enemy.y), enemy.hitRadius, SKYBLUE);
+#ifdef _DEBUG
+			DrawCircle(static_cast<int>(enemy.x), static_cast<int>(enemy.y), enemy.hitRadius, Fade(GREEN, .25f));
+#endif // _DEBUG
+			Assets::DrawSprite(Assets::Sprite::DRONE, { enemy.x, enemy.y }, { enemy.hitRadius * 2, enemy.hitRadius * 2}, { enemy.hitRadius, enemy.hitRadius }, 0, WHITE);
 		}
 
 		void update(Enemy& enemy) {

@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+#include "asset_manager.h"
+#include "utils.h"
+
 namespace MoonPatrol {
 	namespace Bullets {
 		// Private
@@ -32,6 +35,11 @@ namespace MoonPatrol {
 		void draw(Bullet bullet) {
 			DrawCircle(static_cast<int>(bullet.x), static_cast<int>(bullet.y), bullet.radius, bullet.color);
 			DrawCircle(static_cast<int>(bullet.x), static_cast<int>(bullet.y), bullet.radius * .9f, Fade(RAYWHITE, .5f));
+
+			Assets::DrawSprite(Assets::Sprite::BULLET_TRAIL, { bullet.x, bullet.y },
+				{ static_cast<float>(bullet.radius + bullet.speed * .1), static_cast<float>(bullet.radius * 2) },
+				{ static_cast<float>(bullet.radius + bullet.speed * .1), static_cast<float>(bullet.radius * 1) },
+				Utils::RadiansToDegrees(bullet.directionAngle), bullet.color);
 		}
 
 		void update(Bullet& bullet) {

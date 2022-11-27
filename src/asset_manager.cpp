@@ -82,6 +82,12 @@ namespace MoonPatrol {
 				case Sprite::BULLET_TRAIL:
 					LoadSprite("res/sprites/bullet_trail.png", i);
 					break;
+				case Sprite::JEEP_BODY_COLORLESS:
+					LoadSprite("res/sprites/jeep_body_colorless.png", i);
+					break;
+				case Sprite::JEEP_BODY_SILHOUETTE:
+					LoadSprite("res/sprites/jeep_body_silhouette.png", i);
+					break;
 				default:
 					cout << "[!] Invalid Sprite: AssetLoader - LoadSprites\n";
 					break;

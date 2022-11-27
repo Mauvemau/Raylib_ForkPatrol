@@ -18,6 +18,8 @@ namespace MoonPatrol {
 			JEEP_WHEEL,
 			DRONE,
 			BULLET_TRAIL,
+			JEEP_BODY_COLORLESS,
+			JEEP_BODY_SILHOUETTE,
 			COUNT
 		};
 
